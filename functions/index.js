@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-spacing */
 const functions = require("firebase-functions");
 
 // Create and Deploy Your First Cloud Functions
