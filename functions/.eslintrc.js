@@ -8,6 +8,6 @@ module.exports = {
   extends: ["eslint:recommended", "google"],
   rules: {
     quotes: ["error", "double"],
-    "arrow-body-style": ["never"],
+    "arrow-body-style": ["off"],
   },
 };
