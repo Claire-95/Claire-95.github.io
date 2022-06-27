@@ -29,14 +29,11 @@ jobs:
     continue-on-error: true
     steps:
       - uses: actions/checkout@v2
-      - run: npm ci && npm run build
-      - run: npm install -g cordova
-      - run: cp -r ./build/ ./www/
+      - run: npm ci && npm run build && cp -r ./build/ ./www/
       - name: Use oxr463/setup-cordova
         uses: oxr463/setup-cordova@0.0.3
         with:
           exec: |
-            cordova platform add android && \
             cordova build --no-telemetry && \
             cp "$(find . -name '*.apk')" .
       - uses: actions/upload-artifact@v3
