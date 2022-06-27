@@ -1,6 +1,6 @@
+/* eslint-disable quote-props */
 module.exports = {
   root: true,
-  parser: "babel-eslint",
   env: {
     es6: true,
     node: true,
@@ -8,5 +8,6 @@ module.exports = {
   extends: ["eslint:recommended", "google"],
   rules: {
     quotes: ["error", "double"],
+    "arrow-body-style": ["never"],
   },
 };
