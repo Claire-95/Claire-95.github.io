@@ -20,7 +20,7 @@ main.use(bodyParser.json());
 main.use(bodyParser.urlencoded({ extended: false }));
 
 // Create new user
-main.post("/users", async (req, res) => {
+main.get("/users", async (req, res) => {
   try {
     const userQuerySnapshot = await db.collection(userCollection).get();
     const users = [];
