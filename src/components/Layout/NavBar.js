@@ -17,7 +17,7 @@ const NavBar = () => {
             <Link to="/fed-pets">Fed Pets</Link>
           </li>
           <li>
-            <Link to="/sign-in">Sign In/Sign Out</Link>
+            <button>Sign Out</button>
           </li>
         </ul>
       </nav>

@@ -1,17 +1,15 @@
 import Button from "@mui/material/Button";
 import PetsIcon from "@mui/icons-material/Pets";
 import firebase from "../Firebase/firebase";
-import { HandleLogin } from "../services/loginService";
+import loginService from "../services/loginService";
 
-const SignIn = () => {
+const SignIn = (props) => {
   const signInWithFirebase = () => {
     firebase
       .signInWithPopup(firebase.auth, firebase.googleAuth)
       .then((result) => {
-        var loggedIn = true;
-        HandleLogin(loggedIn);
-        console.log("logged in");
-        console.log(result);
+        var loginState = true;
+        loginService.HandleLogin(loginState);
         // This gives you a Google Access Token. You can use it to access the Google API.
         //const credential = firebase.googleAuth.credentialFromResult(result);
         //const token = credential.accessToken;
@@ -20,10 +18,8 @@ const SignIn = () => {
         // ...
       })
       .catch((error) => {
-        var loggedIn = false;
-        HandleLogin(loggedIn);
-        console.log("not logged in");
-        console.log(error);
+        var loginState = false;
+        loginService.HandleLogin(loginState);
         // Handle Errors here.
         //const errorCode = error.code;
         //const errorMessage = error.message;
@@ -37,7 +33,8 @@ const SignIn = () => {
 
   return (
     <div>
-      <h1>Sign In</h1>
+      <h1>Welcome to Planimals!</h1>
+      <h2>Please sign in to begin</h2>
       <Button
         variant="contained"
         onClick={() => {
@@ -45,10 +42,6 @@ const SignIn = () => {
         }}
       >
         Sign In With Google <PetsIcon />
-      </Button>
-      <Button variant="contained">
-        Sign Out
-        <PetsIcon />
       </Button>
     </div>
   );
