@@ -1,5 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 import styles from "./NavBar.module.css";
+import loginService from "../../services/loginService";
 
 const NavBar = () => {
   return (
@@ -17,7 +18,14 @@ const NavBar = () => {
             <Link to="/fed-pets">Fed Pets</Link>
           </li>
           <li>
-            <button>Sign Out</button>
+            <button
+              onClick={() => {
+                var loginState = false;
+                loginService.HandleLogin(loginState);
+              }}
+            >
+              Sign Out
+            </button>
           </li>
         </ul>
       </nav>

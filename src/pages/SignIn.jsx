@@ -18,8 +18,8 @@ const SignIn = (props) => {
         // ...
       })
       .catch((error) => {
-        var loginState = false;
-        loginService.HandleLogin(loginState);
+        //var loginState = false;
+        //loginService.HandleLogin(loginState);
         // Handle Errors here.
         //const errorCode = error.code;
         //const errorMessage = error.message;
