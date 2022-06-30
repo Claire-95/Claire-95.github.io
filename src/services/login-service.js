@@ -1,20 +1,18 @@
-const HandleLogin = (loginState) => {
+exports.HandleLogin = (loginState) => {
   if (loginState) {
     console.log("Congratulations you're logged in!");
   } else {
     console.log("You're not logged in...");
   }
   console.log(loginState);
-  loggedIn = loginState;
-  updateLoginStateCallback(loggedIn);
+  exports.loggedIn = loginState;
+  updateLoginStateCallback(exports.loggedIn);
 };
 
-var loggedIn = false;
+exports.loggedIn = false;
 
-const UpdateLoginState = (updateLoginStateCallbackValue) => {
+exports.UpdateLoginState = (updateLoginStateCallbackValue) => {
   updateLoginStateCallback = updateLoginStateCallbackValue;
 };
 
 var updateLoginStateCallback;
-// eslint-disable-next-line import/no-anonymous-default-export
-export default { loggedIn, HandleLogin, UpdateLoginState };
