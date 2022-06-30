@@ -1,6 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 import styles from "./NavBar.module.css";
-import loginService from "../../services/loginService";
+import loginService from "../../services/login-service";
 
 const NavBar = () => {
   return (

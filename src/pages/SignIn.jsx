@@ -1,7 +1,8 @@
 import Button from "@mui/material/Button";
 import PetsIcon from "@mui/icons-material/Pets";
 import firebase from "../Firebase/firebase";
-import loginService from "../services/loginService";
+import loginService from "../services/login-service";
+import "../index.css";
 
 const SignIn = (props) => {
   const signInWithFirebase = () => {

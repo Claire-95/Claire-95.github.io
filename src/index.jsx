@@ -9,7 +9,7 @@ import AddNewPet from "./pages/AddNewPet";
 import FedPets from "./pages/FedPets";
 import SignIn from "./pages/SignIn";
 import NoPage from "./pages/NoPage";
-import loginService from "./services/loginService";
+import loginService from "./services/login-service";
 
 function UserGreeting() {
   return (

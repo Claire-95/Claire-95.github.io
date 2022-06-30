@@ -38,47 +38,11 @@ const AddNewPet = () => {
           />
         </label>
         <label>
-          Email:
+          Species:
           <input
             type="text"
-            name="email"
-            value={inputs.email || ""}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Area Number:
-          <input
-            type="text"
-            name="areaNumber"
-            value={inputs.areaNumber || ""}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Department:
-          <input
-            type="text"
-            name="department"
-            value={inputs.department || ""}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          ID:
-          <input
-            type="text"
-            name="id"
-            value={inputs.id || ""}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Contact number:
-          <input
-            type="text"
-            name="contactNumber"
-            value={inputs.contactNumber || ""}
+            name="species"
+            value={inputs.species || ""}
             onChange={handleChange}
           />
         </label>
