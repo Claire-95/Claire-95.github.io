@@ -8,7 +8,7 @@ const GetPets = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(urlBase + "users")
+    fetch(urlBase + "pets")
       .then((response) => {
         return response.json();
       })
@@ -25,6 +25,7 @@ const GetPets = () => {
         }
 
         setIsLoading(false);
+        console.log("done loading");
         setLoadedPets(pets);
       });
   }, []);
