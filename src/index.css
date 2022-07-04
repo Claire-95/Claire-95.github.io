@@ -9,12 +9,6 @@
   --writing: #731429;
 }
 
-
-.landingPage {
-  justify-content: center;
-  color: #dc73ff;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -23,7 +17,6 @@ body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   background-color: #fcf3f6;
-  text-align: center;
 }
 
 h1 {
