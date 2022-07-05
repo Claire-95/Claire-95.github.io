@@ -12,26 +12,26 @@ const main = express();
 
 // initialize the database and the collection
 const db = admin.firestore();
-const userCollection = "users";
+const petCollection = "pets";
 
 // add the path to receive request and set json as bodyParser to process body
 main.use("/api/v1", app);
 main.use(bodyParser.json());
 main.use(bodyParser.urlencoded({ extended: false }));
 
-// Create new user
+// Get pets
 main.get("/pets", async (req, res) => {
   try {
-    const userQuerySnapshot = await db.collection(userCollection).get();
-    const users = [];
-    userQuerySnapshot.forEach((doc) => {
-      users.push({
+    const petQuerySnapshot = await db.collection(petCollection).get();
+    const pets = [];
+    petQuerySnapshot.forEach((doc) => {
+      pets.push({
         id: doc.id,
         data: doc.data(),
       });
     });
     res.setHeader("Access-Control-Allow-Origin", "*");
-    res.status(200).json(users);
+    res.status(200).json(pets);
   } catch (error) {
     res.status(500).send(error);
   }
