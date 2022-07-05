@@ -5,7 +5,7 @@ import { useEffect } from "react";
 const AddNewPet = () => {
   function AddPetHandler(petData) {
     console.log(petData);
-    useEffect(() => {
+    useEffect((petData) => {
       fetch(urlBase + "pets", {
         method: "POST",
         mode: "no-cors",
