@@ -37,5 +37,22 @@ main.get("/pets", async (req, res) => {
   }
 });
 
+main.post("/pets", async (req, res) => {
+  try {
+    const petQuerySnapshot = await db.collection(petCollection).get();
+    const pets = [];
+    petQuerySnapshot.forEach((doc) => {
+      pets.push({
+        id: doc.id,
+        data: doc.data(),
+      });
+    });
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.status(200).json(pets);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
 // define google cloud function name
 exports.webApi = functions.https.onRequest(main);
