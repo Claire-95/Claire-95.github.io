@@ -75,4 +75,4 @@ router.delete("/", async (req, res) => {
   }
 });
 
-exports.router = router;
+module.exports = router;

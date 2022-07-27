@@ -15,7 +15,7 @@ const main = express();
 main.use(bodyParser.json());
 main.use(bodyParser.urlencoded({ extended: false }));
 
-main.use("/pets", petsController.router);
+main.use("/pets", petsController);
 
 // define google cloud function name
 exports.webApi = functions.https.onRequest(main);
