@@ -10,15 +10,12 @@ admin.initializeApp(functions.config().firebase);
 const petsController = require("./controllers/pets-controller");
 
 // initialize express server
-const app = express();
 const main = express();
 
-// add the path to receive request and set json as bodyParser to process body
-main.use("/api/v1", app);
 main.use(bodyParser.json());
 main.use(bodyParser.urlencoded({ extended: false }));
 
-main.use("/pets", petsController);
+main.use("/pets", petsController.router);
 
 // define google cloud function name
 exports.webApi = functions.https.onRequest(main);
