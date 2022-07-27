@@ -1,37 +1,46 @@
-import { Outlet, Link } from "react-router-dom";
-import styles from "./NavBar.module.css";
+import { Outlet } from "react-router-dom";
+import classes from "./NavBar.module.css";
 import loginService from "../../services/login-service";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { useState } from "react";
 
 const NavBar = () => {
-  return (
-    <header>
-      <nav className={styles.header}>
-        <div className={styles.logo}>Planimals</div>
-        <ul>
-          <li>
-            <Link to="/all-pets">All Pets</Link>
-          </li>
-          <li>
-            <Link to="/new-pet">Add New Pet</Link>
-          </li>
-          <li>
-            <Link to="/fed-pets">Fed Pets</Link>
-          </li>
-          <li>
-            <button
-              onClick={() => {
-                var loginState = false;
-                loginService.HandleLogin(loginState);
-              }}
-            >
-              Sign Out
-            </button>
-          </li>
-        </ul>
-      </nav>
+  const [navRef, setNavRef] = useState(classes.closed);
 
+  const showNavBar = () => {
+    if (navRef === classes.closed) {
+      setNavRef(classes.open);
+    } else {
+      setNavRef(classes.closed);
+    }
+  };
+
+  return (
+    <div>
+      <header>
+        <h3>Planimals</h3>
+        <nav className={navRef}>
+          <a href="/all-pets">All Pets</a>
+          <a href="/new-pet">Add New Pet</a>
+          <a href="/fed-pets">Fed Pets</a>
+          <button
+            onClick={() => {
+              var loginState = false;
+              loginService.HandleLogin(loginState);
+            }}
+          >
+            Sign Out
+          </button>
+          <button className={classes.navBtn} onClick={showNavBar}>
+            <FaTimes />
+          </button>
+        </nav>
+        <button className={classes.navBtn} onClick={showNavBar}>
+          <FaBars />
+        </button>
+      </header>
       <Outlet />
-    </header>
+    </div>
   );
 };
 
