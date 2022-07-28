@@ -8,10 +8,7 @@ const GetPets = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(urlBase + "pets", {
-      method: "GET",
-      mode: "no-cors",
-    })
+    fetch(urlBase + "pets")
       .then((response) => {
         return response.json();
       })
