@@ -11,9 +11,6 @@ const GetPets = () => {
     fetch(urlBase + "pets", {
       method: "GET",
       mode: "no-cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
     })
       .then((response) => {
         return response.json();
