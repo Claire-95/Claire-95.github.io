@@ -23,14 +23,15 @@ const NavBar = () => {
           <a href="/all-pets">All Pets</a>
           <a href="/new-pet">Add New Pet</a>
           <a href="/fed-pets">Fed Pets</a>
-          <button
+          <a
+            href="/all-pets"
             onClick={() => {
               var loginState = false;
               loginService.HandleLogin(loginState);
             }}
           >
             Sign Out
-          </button>
+          </a>
           <button className={classes.navBtn} onClick={showNavBar}>
             <FaTimes />
           </button>
