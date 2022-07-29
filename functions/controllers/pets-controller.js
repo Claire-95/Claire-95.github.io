@@ -1,7 +1,6 @@
 /* eslint new-cap: ["error", { "capIsNewExceptions": ["Router"] }] */
 const db = require("../services/database-service");
 const express = require("express");
-const { response } = require("express");
 const router = express.Router();
 const petCollection = "pets";
 
@@ -16,7 +15,7 @@ router.get("/", async (req, res) => {
         data: doc.data(),
       });
     });
-    response.set("Access-Control-Allow-Origin", "*");
+    // res.setHeader("Access-Control-Allow-Origin", "*");
     res.status(200).json(pets);
   } catch (error) {
     res.status(500).send(error);
