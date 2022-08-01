@@ -1,4 +1,3 @@
-/* eslint new-cap: ["error", { "capIsNewExceptions": ["Router"] }] */
 const express = require("express");
 const cors = require("cors");
 const functions = require("firebase-functions");
