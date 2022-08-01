@@ -3,6 +3,9 @@ const db = require("../services/database-service");
 const express = require("express");
 const router = express.Router();
 const petCollection = "pets";
+const cors = require("cors");
+
+router.use(cors());
 
 // Get pets
 router.get("/", async (req, res) => {
