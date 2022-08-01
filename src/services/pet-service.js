@@ -53,7 +53,7 @@ const SetPet = (props) => {
   console.log(petData);
   fetch(urlBase + "pets", {
     method: "POST",
-    // mode: "no-cors",
+    mode: "no-cors",
     headers: {
       "Content-Type": "application/json",
     },
