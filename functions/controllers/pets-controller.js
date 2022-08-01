@@ -7,10 +7,8 @@ const petCollection = "pets";
 // Get pets
 router.get("/", async (req, res) => {
   try {
-    console.log("starts");
     res.set("Access-Control-Allow-Origin", "*");
     const petQuerySnapshot = await db.collection(petCollection).get();
-    console.log("db query");
     const pets = [];
     petQuerySnapshot.forEach((doc) => {
       pets.push({
@@ -30,8 +28,7 @@ router.post("/", async (req, res) => {
   try {
     const data = JSON.parse(req.body);
     // ID SET HERE!!!
-
-    const res = await db.collection("pets").doc().set(data);
+    const res = await db.collection(petCollection).doc().set(data);
 
     const petQuerySnapshot = await db.collection(petCollection).get();
 
