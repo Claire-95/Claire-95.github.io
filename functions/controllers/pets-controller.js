@@ -7,6 +7,7 @@ const petCollection = "pets";
 // Get pets
 router.get("/", async (req, res) => {
   try {
+    res.set("Access-Control-Allow-Origin", "*");
     const petQuerySnapshot = await db.collection(petCollection).get();
     const pets = [];
     petQuerySnapshot.forEach((doc) => {
@@ -15,7 +16,6 @@ router.get("/", async (req, res) => {
         data: doc.data(),
       });
     });
-    res.set("Access-Control-Allow-Origin", "*");
     res.status(200).json(pets);
   } catch (error) {
     res.status(500).send(error);
