@@ -25,6 +25,7 @@ router.get("/", async (req, res) => {
 // Post a Pet to database
 router.post("/", async (req, res) => {
   try {
+    res.set("Access-Control-Allow-Origin", "*");
     const data = JSON.parse(req.body);
     // ID SET HERE!!!
 
@@ -51,6 +52,7 @@ router.post("/", async (req, res) => {
 // Delete pet
 router.delete("/", async (req, res) => {
   try {
+    res.set("Access-Control-Allow-Origin", "*");
     const data = JSON.parse(req.body);
     const id = data.id;
     console.log(id);
