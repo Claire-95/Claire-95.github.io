@@ -6,6 +6,7 @@ const petCollection = "pets";
 
 // Get pets
 router.get("/", async (req, res) => {
+  res.set("Access-Control-Allow-Origin", "*");
   try {
     const petQuerySnapshot = await db.collection(petCollection).get();
     const pets = [];
@@ -15,7 +16,6 @@ router.get("/", async (req, res) => {
         data: doc.data(),
       });
     });
-    res.setHeader("Access-Control-Allow-Origin", "*");
     res.status(200).json(pets);
   } catch (error) {
     res.status(500).send(error);
