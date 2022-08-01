@@ -5,7 +5,7 @@ const router = express.Router();
 const petCollection = "pets";
 
 // Get pets
-router.get("/pets", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     res.set("Access-Control-Allow-Origin", "*");
     const petQuerySnapshot = await db.collection(petCollection).get();
