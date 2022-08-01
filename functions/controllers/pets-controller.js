@@ -1,27 +1,11 @@
+/* eslint new-cap: ["error", { "capIsNewExceptions": ["Router"] }] */
+const db = require("../services/database-service");
 const express = require("express");
-const cors = require("cors");
-const functions = require("firebase-functions");
-const app = express();
-const admin = require("firebase-admin");
-
-const bodyParser = require("body-parser");
-
-admin.initializeApp(functions.config().firebase);
-
-const db = admin.firestore();
+const router = express.Router();
 const petCollection = "pets";
 
-app.use("/api/v1", app);
-app.use(bodyParser.json());
-// eslint-disable-next-line object-curly-spacing
-app.use(bodyParser.urlencoded({ extended: false }));
-
-// Automatically allow cross-origin requests
-// eslint-disable-next-line object-curly-spacing
-app.use(cors({ origin: true }));
-
 // Get pets
-app.get("/", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     res.set("Access-Control-Allow-Origin", "*");
     const petQuerySnapshot = await db.collection(petCollection).get();
@@ -40,7 +24,7 @@ app.get("/", async (req, res) => {
 });
 
 // Post a Pet to database
-app.post("/", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const data = JSON.parse(req.body);
     // ID SET HERE!!!
@@ -66,7 +50,7 @@ app.post("/", async (req, res) => {
 });
 
 // Delete pet
-app.delete("/", async (req, res) => {
+router.delete("/", async (req, res) => {
   try {
     const data = JSON.parse(req.body);
     const id = data.id;
@@ -92,4 +76,4 @@ app.delete("/", async (req, res) => {
   }
 });
 
-exports.webApi = functions.https.onRequest(app);
+module.exports = router;
