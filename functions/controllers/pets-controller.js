@@ -4,8 +4,17 @@ const functions = require("firebase-functions");
 const app = express();
 const admin = require("firebase-admin");
 
+const bodyParser = require("body-parser");
+
+admin.initializeApp(functions.config().firebase);
+
 const db = admin.firestore();
 const petCollection = "pets";
+
+app.use("/api/v1", app);
+app.use(bodyParser.json());
+// eslint-disable-next-line object-curly-spacing
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Automatically allow cross-origin requests
 // eslint-disable-next-line object-curly-spacing
