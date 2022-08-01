@@ -10,7 +10,7 @@ const GetPets = () => {
     setIsLoading(true);
     fetch(urlBase + "pets", {
       method: "GET",
-      mode: "no-cors",
+      mode: "cors",
     })
       .then((response) => {
         return response.json();
