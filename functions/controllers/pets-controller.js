@@ -4,9 +4,6 @@ const express = require("express");
 const router = express.Router();
 const petCollection = "pets";
 
-const cors = require("cors");
-
-router.use(cors({ origin: true }));
 // Get pets
 router.get("/", async (req, res) => {
   try {
