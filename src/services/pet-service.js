@@ -13,6 +13,7 @@ const GetPets = () => {
         return response.json();
       })
       .then((data) => {
+        console.log(data);
         const pets = [];
 
         for (const key in data) {
@@ -27,6 +28,7 @@ const GetPets = () => {
         setIsLoading(false);
         console.log("done loading");
         setLoadedPets(pets);
+        console.log(pets);
       });
   }, []);
 
