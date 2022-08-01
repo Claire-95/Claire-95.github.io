@@ -41,7 +41,6 @@ router.post("/", async (req, res) => {
         data: doc.data(),
       });
     });
-    res.setHeader("Access-Control-Allow-Origin", "*");
     res.status(200).json(pets);
   } catch (error) {
     console.log(error);
@@ -69,7 +68,6 @@ router.delete("/", async (req, res) => {
         data: doc.data(),
       });
     });
-    res.setHeader("Access-Control-Allow-Origin", "*");
     res.status(200).json(pets);
   } catch (error) {
     console.log(error);
