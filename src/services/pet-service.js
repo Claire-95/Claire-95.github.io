@@ -71,7 +71,6 @@ const DeletePet = (props) => {
 
   axios
     .delete(urlBase + "pets", {
-      method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
