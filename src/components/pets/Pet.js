@@ -8,7 +8,7 @@ function Pet(props) {
   function DeletePetHandler(petData) {
     console.log(petData);
     console.log(petData.id);
-    DeletePet(petData);
+    DeletePet(petData.id);
   }
 
   return (

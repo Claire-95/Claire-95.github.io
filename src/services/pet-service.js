@@ -65,21 +65,10 @@ const SetPet = (props) => {
 };
 
 //Delete pet
-const DeletePet = (props) => {
-  var petData = props;
-  console.log(petData);
-
-  axios
-    .delete(urlBase + "pets", {
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      data: JSON.stringify(petData),
-    })
-    .then((res) => {
-      console.log(res);
-    });
+const DeletePet = (petId) => {
+  axios.delete(urlBase + "pets/" + petId).then((res) => {
+    console.log(res);
+  });
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export

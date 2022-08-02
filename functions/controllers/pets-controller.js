@@ -48,15 +48,11 @@ router.post("/", async (req, res) => {
 });
 
 // Delete pet
-router.delete("/", async (req, res) => {
+router.delete("/:petId", async (req, res) => {
   try {
-    const data = JSON.parse(req.body);
+    const petId = req.params.petId;
 
-    console.log(data);
-    const id = data.id;
-    console.log(id);
-
-    const res = await db.collection("pets").doc(id).delete();
+    const res = await db.collection(petCollection).doc(petId).delete();
 
     const petQuerySnapshot = await db.collection(petCollection).get();
 
