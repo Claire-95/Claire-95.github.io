@@ -9,9 +9,9 @@ const GetPets = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(urlBase + "pets")
+    axios(urlBase + "pets")
       .then((response) => {
-        return response.json();
+        return response.data;
       })
       .then((data) => {
         console.log(data);
@@ -73,6 +73,7 @@ const DeletePet = (props) => {
     .delete(urlBase + "pets", {
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
       data: JSON.stringify(petData),
     })
