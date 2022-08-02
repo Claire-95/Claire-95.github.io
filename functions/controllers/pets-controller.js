@@ -51,11 +51,10 @@ router.post("/", async (req, res) => {
 router.delete("/", async (req, res) => {
   try {
     const data = JSON.parse(req.body);
-    const headData = JSON.parse(req.header);
+
     console.log(data);
     const id = data.id;
     console.log(id);
-    console.log(headData);
 
     const res = await db.collection("pets").doc(id).delete();
 
