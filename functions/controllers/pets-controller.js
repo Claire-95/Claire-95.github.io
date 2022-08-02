@@ -54,17 +54,7 @@ router.delete("/:petId", async (req, res) => {
 
     const res = await db.collection(petCollection).doc(petId).delete();
 
-    const petQuerySnapshot = await db.collection(petCollection).get();
-
-    const pets = [];
-
-    petQuerySnapshot.forEach((doc) => {
-      pets.push({
-        id: doc.id,
-        data: doc.data(),
-      });
-    });
-    res.status(200).text(pets);
+    res.status(200);
   } catch (error) {
     console.log(error);
     res.status(500).send(error);
