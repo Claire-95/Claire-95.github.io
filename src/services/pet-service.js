@@ -1,6 +1,7 @@
 import urlBase from "../constants";
 import { useState, useEffect } from "react";
 import PetList from "../components/pets/PetList";
+const axios = require("axios").default;
 
 const GetPets = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -67,15 +68,18 @@ const SetPet = (props) => {
 const DeletePet = (props) => {
   var petData = props;
   console.log(petData);
-  fetch(urlBase + "pets", {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(petData),
-  }).then((res) => {
-    console.log(res);
-  });
+
+  axios
+    .delete(urlBase + "pets", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: JSON.stringify(petData),
+    })
+    .then((res) => {
+      console.log(res);
+    });
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export

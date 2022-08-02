@@ -51,6 +51,7 @@ router.post("/", async (req, res) => {
 router.delete("/", async (req, res) => {
   try {
     res.set("Access-Control-Allow-Origin", "*");
+    res.set("Access-Control-Allow-Headers", "Content-Type");
     const data = JSON.parse(req.body);
     const headData = JSON.parse(req.header);
     console.log(data);
