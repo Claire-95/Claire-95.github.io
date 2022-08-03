@@ -5,10 +5,10 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { useState } from "react";
 
 const NavBar = () => {
-  const [navRef, setNavRef] = useState(classes.closed);
+  const [classState, setNavRef] = useState(classes.start);
 
   const showNavBar = () => {
-    if (navRef === classes.closed) {
+    if (classState === classes.closed) {
       setNavRef(classes.open);
     } else {
       setNavRef(classes.closed);
@@ -19,7 +19,7 @@ const NavBar = () => {
     <div>
       <header>
         <h3>Planimals</h3>
-        <nav className={navRef}>
+        <nav className={classState}>
           <a href="/all-pets">All Pets</a>
           <a href="/new-pet">Add New Pet</a>
           <a href="/fed-pets">Fed Pets</a>
