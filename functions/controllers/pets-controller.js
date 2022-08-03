@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint new-cap: ["error", { "capIsNewExceptions": ["Router"] }] */
 const db = require("../services/database-service");
 const express = require("express");
@@ -11,7 +12,10 @@ router.get("/", async (req, res) => {
     if (!req.user.loggedIn) {
       res.status(401).send({});
     }
-    const petQuerySnapshot = await db.collection(petCollection).get();
+    const petQuerySnapshot = await db
+      .collection(petCollection)
+      .where("owner", "==", req.user.email)
+      .get();
     const pets = [];
     petQuerySnapshot.forEach((doc) => {
       pets.push({
@@ -30,6 +34,7 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const data = JSON.parse(req.body);
+    data.owner = req.user.email;
     await db.collection(petCollection).doc().set(data);
     res.status(200).json({});
   } catch (error) {
