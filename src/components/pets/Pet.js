@@ -2,13 +2,16 @@ import Card from "../ui/Card";
 import classes from "./Pet.module.css";
 import PetsIcon from "@mui/icons-material/Pets";
 import { DeletePet } from "../../services/pet-service";
+import { useState } from "react";
 
 //Produces content for pet cards
+
 function Pet(props) {
+  const [deletePet, setDeletePet] = useState("Delete Pet");
+
   function DeletePetHandler(petData) {
-    console.log(petData);
-    console.log(petData.id);
     DeletePet(petData.id);
+    setDeletePet("Deleted");
   }
 
   return (
@@ -26,7 +29,7 @@ function Pet(props) {
               DeletePetHandler(props);
             }}
           >
-            Delete Pet
+            {deletePet}
             <PetsIcon />
           </button>
         </div>

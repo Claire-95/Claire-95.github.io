@@ -27,20 +27,9 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const data = JSON.parse(req.body);
-    // ID SET HERE!!!
     const res = await db.collection(petCollection).doc().set(data);
 
-    const petQuerySnapshot = await db.collection(petCollection).get();
-
-    const pets = [];
-
-    petQuerySnapshot.forEach((doc) => {
-      pets.push({
-        id: doc.id,
-        data: doc.data(),
-      });
-    });
-    res.status(200).json(pets);
+    res.status(200).json({});
   } catch (error) {
     console.log(error);
     res.status(500).send(error);
@@ -51,10 +40,9 @@ router.post("/", async (req, res) => {
 router.delete("/:petId", async (req, res) => {
   try {
     const petId = req.params.petId;
-
     const res = await db.collection(petCollection).doc(petId).delete();
 
-    res.status(200);
+    res.status(200).json({});
   } catch (error) {
     console.log(error);
     res.status(500).send(error);

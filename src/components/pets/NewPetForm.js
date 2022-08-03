@@ -19,8 +19,11 @@ function NewPetForm(props) {
       lastName: enteredLastName,
       species: enteredSpecies,
     };
-
     props.onAddPet(petData);
+
+    firstNameInputRef.current.value = "";
+    lastNameInputRef.current.value = "";
+    speciesInputRef.current.value = "";
   }
 
   return (
