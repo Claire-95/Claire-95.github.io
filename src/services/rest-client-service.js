@@ -5,7 +5,7 @@ const urlBase = require("../constants");
 module.exports = () => {
   return axios.create({
     baseURL: urlBase.default,
-    timeout: 1000,
+    timeout: 10000,
     headers: { Authentication: "Bearer " + authService.AccessToken },
   });
 };
