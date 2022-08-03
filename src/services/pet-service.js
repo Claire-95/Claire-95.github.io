@@ -54,7 +54,7 @@ const GetPets = () => {
 const SetPet = (props) => {
   var petData = props;
   console.log(petData);
-  fetch(urlBase + "pets", {
+  fetch(urlBase.default + "pets", {
     method: "POST",
     mode: "no-cors",
     headers: {
@@ -68,7 +68,7 @@ const SetPet = (props) => {
 
 //Delete pet
 const DeletePet = (petId) => {
-  axios.delete(urlBase + "pets/" + petId).then((res) => {
+  axios.delete(urlBase.default + "pets/" + petId).then((res) => {
     console.log(res);
   });
 };
