@@ -16,11 +16,12 @@ module.exports = (req, res, next) => {
           console.log(`Authenticated user: ${JSON.stringify(req.user)}`);
           next();
         });
-      return;
+    } else {
+      throw new Error("No authentication header found");
     }
   } catch (error) {
     console.log(error);
+    req.user.loggedIn = false;
+    next();
   }
-  req.user.loggedIn = false;
-  next();
 };
