@@ -10,13 +10,11 @@ const SignIn = (props) => {
       .signInWithPopup(firebase.auth, firebase.googleAuth)
       .then((result) => {
         var loginState = true;
-        loginService.HandleLogin(loginState);
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        //const credential = firebase.googleAuth.credentialFromResult(result);
-        //const token = credential.accessToken;
-        // The signed-in user info.
-        //const user = result.user;
-        // ...
+        loginService.HandleLogin(
+          loginState,
+          result.user.email,
+          result.user.accessToken
+        );
       })
       .catch((error) => {
         //var loginState = false;

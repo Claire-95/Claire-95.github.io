@@ -1,6 +1,7 @@
-import urlBase from "../constants";
+import restClient from "./rest-client-service";
 import { useState, useEffect } from "react";
 import PetList from "../components/pets/PetList";
+const urlBase = require("../constants");
 const axios = require("axios").default;
 
 const GetPets = () => {
@@ -9,7 +10,8 @@ const GetPets = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    axios(urlBase + "pets")
+    restClient()
+      .get("pets")
       .then((response) => {
         return response.data;
       })
