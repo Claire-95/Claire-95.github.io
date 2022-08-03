@@ -8,6 +8,9 @@ const petCollection = "pets";
 // Get pets
 router.get("/", async (req, res) => {
   try {
+    if (!req.user.loggedIn) {
+      res.status(401).send({});
+    }
     const petQuerySnapshot = await db.collection(petCollection).get();
     const pets = [];
     petQuerySnapshot.forEach((doc) => {
