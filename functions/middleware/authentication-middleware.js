@@ -16,11 +16,11 @@ module.exports = (req, res, next) => {
           console.log(`Authenticated user: ${JSON.stringify(req.user)}`);
           next();
         });
+      return;
     }
   } catch (error) {
     console.log(error);
-  } finally {
-    req.user.loggedIn = false;
-    next();
   }
+  req.user.loggedIn = false;
+  next();
 };
