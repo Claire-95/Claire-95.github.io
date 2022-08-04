@@ -56,7 +56,6 @@ const SetPet = (props) => {
   console.log(petData);
   fetch(urlBase.default + "pets", {
     method: "POST",
-    mode: "no-cors",
     headers: {
       "Content-Type": "application/json",
     },
