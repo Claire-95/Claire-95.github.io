@@ -4,6 +4,7 @@ const admin = require("firebase-admin");
 module.exports = (req, res, next) => {
   req.user = {};
   try {
+    console.log(req.body);
     const authHeader = req.get("Authentication");
     console.log(authHeader);
     console.log("we made it past setting authHeader");
