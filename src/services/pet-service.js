@@ -54,16 +54,14 @@ const GetPets = () => {
 const SetPet = (props) => {
   var petData = props;
   console.log(petData);
-  fetch(urlBase.default + "pets", {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(petData),
-  }).then((res) => {
-    console.log(res);
-  });
+  restClient()
+    .post("/pets", { petData })
+    .then((response) => {
+      return response.data;
+    })
+    .then((res) => {
+      console.log(res);
+    });
 };
 
 //Delete pet

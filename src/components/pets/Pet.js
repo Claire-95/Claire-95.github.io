@@ -14,6 +14,8 @@ function Pet(props) {
     setDeletePet("Deleted");
   }
 
+  console.log(props);
+
   return (
     <li className={classes.item}>
       <Card>

@@ -9,9 +9,9 @@ function PetList(props) {
         <Pet
           key={pet.id}
           id={pet.id}
-          firstName={pet.data.firstName}
-          lastName={pet.data.lastName}
-          species={pet.data.species}
+          firstName={pet.data.petData.firstName}
+          lastName={pet.data.petData.lastName}
+          species={pet.data.petData.species}
         />
       ))}
     </ul>
