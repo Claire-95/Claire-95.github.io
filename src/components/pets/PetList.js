@@ -1,8 +1,7 @@
-import Pet from "./Pet";
+import { Pet } from "./Pet";
 import classes from "./PetList.module.css";
 
 function PetList(props) {
-  console.log(props.pets);
   return (
     <ul className={classes.list}>
       {props.pets.map((pet) => (
@@ -12,10 +11,12 @@ function PetList(props) {
           firstName={pet.data.petData.firstName}
           lastName={pet.data.petData.lastName}
           species={pet.data.petData.species}
+          amount={pet.data.petData.amount}
+          metric={pet.data.petData.metric}
         />
       ))}
     </ul>
   );
 }
 
-export default PetList;
+export { PetList };

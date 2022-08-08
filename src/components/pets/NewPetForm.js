@@ -6,6 +6,8 @@ function NewPetForm(props) {
   const firstNameInputRef = useRef();
   const lastNameInputRef = useRef();
   const speciesInputRef = useRef();
+  const metricInputRef = useRef();
+  const amountInputRef = useRef();
 
   function submitHandler(event) {
     event.preventDefault();
@@ -13,17 +15,23 @@ function NewPetForm(props) {
     const enteredFirstName = firstNameInputRef.current.value;
     const enteredLastName = lastNameInputRef.current.value;
     const enteredSpecies = speciesInputRef.current.value;
+    const enteredMetric = metricInputRef.current.value;
+    const enteredAmount = amountInputRef.current.value;
 
     const petData = {
       firstName: enteredFirstName,
       lastName: enteredLastName,
       species: enteredSpecies,
+      metric: enteredMetric,
+      amount: enteredAmount,
     };
     props.onAddPet(petData);
 
     firstNameInputRef.current.value = "";
     lastNameInputRef.current.value = "";
     speciesInputRef.current.value = "";
+    metricInputRef.current.value = "";
+    amountInputRef.current.value = "";
   }
 
   return (
@@ -40,6 +48,14 @@ function NewPetForm(props) {
         <div className={classes.control}>
           <label htmlFor="species">Species</label>
           <input type="text" required id="species" ref={speciesInputRef} />
+        </div>
+        <div className={classes.control}>
+          <label htmlFor="metric">Metric</label>
+          <input type="text" required id="metric" ref={metricInputRef} />
+        </div>
+        <div className={classes.control}>
+          <label htmlFor="amount">Amount</label>
+          <input type="text" required id="amount" ref={amountInputRef} />
         </div>
         <div className={classes.actions}>
           <button>Add Pet</button>

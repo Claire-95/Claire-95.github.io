@@ -1,6 +1,6 @@
 import restClient from "./rest-client-service";
 import { useState, useEffect } from "react";
-import PetList from "../components/pets/PetList";
+import { PetList } from "../components/pets/PetList";
 const urlBase = require("../constants");
 const axios = require("axios").default;
 
@@ -16,7 +16,6 @@ const GetPets = () => {
         return response.data;
       })
       .then((data) => {
-        console.log(data);
         const pets = [];
 
         for (const key in data) {
@@ -31,7 +30,6 @@ const GetPets = () => {
         setIsLoading(false);
         console.log("done loading");
         setLoadedPets(pets);
-        console.log(pets);
       });
   }, []);
 
