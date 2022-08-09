@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import classes from "./NewPetForm.module.css";
+import classes from "./ProgressBar.module.css";
 
 export default function ProgressBar() {
   const [counter, setCounter] = useState(0);

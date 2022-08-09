@@ -6,12 +6,17 @@ import React, { useState } from "react";
 import NavBar from "./components/Layout/NavBar";
 import AllPets from "./pages/AllPets";
 import AddNewPet from "./pages/AddNewPet";
-import FedPets from "./pages/FedPets";
+import PetPage from "./pages/PetPage";
 import SignIn from "./pages/SignIn";
 import NoPage from "./pages/NoPage";
 import loginService from "./services/login-service";
 
 function UserGreeting() {
+  const urlId = window.location.pathname.split("/").pop();
+  console.log(urlId);
+  var petPath = "pet-page/" + urlId;
+  console.log(petPath);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -19,7 +24,7 @@ function UserGreeting() {
           <Route index element={<AllPets />} />
           <Route path="sign-in" element={<SignIn />} />
           <Route path="new-pet" element={<AddNewPet />} />
-          <Route path="fed-pets" element={<FedPets />} />
+          <Route path={petPath} element={<PetPage />} />
           <Route path="all-pets" element={<AllPets />} />
           <Route path="*" element={<NoPage />} />
         </Route>
