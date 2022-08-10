@@ -6,6 +6,8 @@ import { DeletePet } from "../../services/pet-service";
 import { useState } from "react";
 import ProgressBar from "./ProgressBar";
 
+//Produces content for pet cards
+
 function Pet(props) {
   const [deletePet, setDeletePet] = useState("Delete Pet");
 
@@ -21,28 +23,30 @@ function Pet(props) {
   console.log(url);
 
   return (
-    <Card>
-      <div className={classes.content}>
-        <h3>{props.firstName}</h3>
-        <p>{props.lastName}</p>
-        <p>{props.species}</p>
-        <p>
-          {props.amount} {props.metric} per day
-        </p>
-        <ProgressBar />
-      </div>
-      <div className={classes.actions}>
-        <button
-          className={classes.actions}
-          onClick={() => {
-            DeletePetHandler(props);
-          }}
-        >
-          {deletePet}
-          <PetsIcon />
-        </button>
-      </div>
-    </Card>
+    <li className={classes.item}>
+      <Card>
+        <div className={classes.content}>
+          <h3>{props.firstName}</h3>
+          <p>{props.lastName}</p>
+          <p>{props.species}</p>
+          <p>
+            {props.amount} {props.metric} per day
+          </p>
+          <ProgressBar />
+        </div>
+        <div className={classes.actions}>
+          <button
+            className={classes.actions}
+            onClick={() => {
+              DeletePetHandler(props);
+            }}
+          >
+            {deletePet}
+            <PetsIcon />
+          </button>
+        </div>
+      </Card>
+    </li>
   );
 }
 

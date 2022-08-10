@@ -45,7 +45,13 @@ const GetPets = () => {
 
   const urlId = window.location.pathname.split("/").pop();
 
-  if (urlId === "all-pets") return <PetList pets={loadedPets} />;
+  if (urlId === "all-pets")
+    return (
+      <section>
+        <h1>All Pets</h1>
+        <PetList pets={loadedPets} />
+      </section>
+    );
   else
     for (var i = 0; i < loadedPets.length; i++) {
       if (loadedPets[i].id === urlId) {
@@ -53,7 +59,12 @@ const GetPets = () => {
         console.log(currentPet);
       }
     }
-  return <CurrentPet pet={currentPet} />;
+  return (
+    <section>
+      <h1>Pet</h1>
+      <CurrentPet pet={currentPet} />
+    </section>
+  );
 };
 
 const SetPet = (props) => {
