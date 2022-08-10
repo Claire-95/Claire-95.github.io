@@ -44,16 +44,24 @@ const GetPets = () => {
   }
 
   const urlId = window.location.pathname.split("/").pop();
+  console.log(urlId);
+  console.log(loadedPets);
+  console.log(loadedPets.length);
 
-  if (urlId === "all-pets") return <PetList pets={loadedPets} />;
-  else
-    for (var i = 0; i < loadedPets.length; i++) {
-      if (loadedPets[i].id === urlId) {
-        var currentPet = loadedPets[i];
-        console.log(currentPet);
-      }
+  for (var i = 0; i < loadedPets.length; i++) {
+    if (loadedPets[i].id === urlId) {
+      console.log("it's a match");
+      console.log(loadedPets[i]);
+      var currentPet = loadedPets[i];
+      var currentPetId = currentPet.id;
     }
-  return <CurrentPet pet={currentPet} />;
+  }
+
+  if (urlId === currentPetId) {
+    return <CurrentPet pet={currentPet} />;
+  } else {
+    return <PetList pets={loadedPets} />;
+  }
 };
 
 const SetPet = (props) => {
