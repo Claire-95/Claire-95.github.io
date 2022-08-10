@@ -1,6 +1,8 @@
 import restClient from "./rest-client-service";
 import { useState, useEffect } from "react";
 import { PetList } from "../components/pets/PetList";
+import { CurrentPet } from "../components/pets/CurrentPet";
+
 const urlBase = require("../constants");
 const axios = require("axios").default;
 
@@ -41,10 +43,26 @@ const GetPets = () => {
     );
   }
 
+  const urlId = window.location.pathname.split("/").pop();
+
+  if (urlId === "all-pets")
+    return (
+      <section>
+        <h1>All Pets</h1>
+        <PetList pets={loadedPets} />
+      </section>
+    );
+  else
+    for (var i = 0; i < loadedPets.length; i++) {
+      if (loadedPets[i].id === urlId) {
+        var currentPet = loadedPets[i];
+        console.log(currentPet);
+      }
+    }
   return (
     <section>
-      <h1>All Pets</h1>
-      <PetList pets={loadedPets} />
+      <h1>Pet</h1>
+      <CurrentPet pet={currentPet} />
     </section>
   );
 };

@@ -1,10 +1,9 @@
-function PetPage(props) {
-  console.log(props);
-  return (
-    <>
-      <h1>Pet</h1>
-    </>
-  );
-}
+import { GetPets } from "../services/pet-service";
+
+const PetPage = () => {
+  const urlId = window.location.pathname.split("/").pop();
+  console.log(urlId);
+  return GetPets();
+};
 
 export default PetPage;

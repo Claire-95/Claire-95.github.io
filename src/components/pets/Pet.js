@@ -4,7 +4,6 @@ import PetsIcon from "@mui/icons-material/Pets";
 import { DeletePet } from "../../services/pet-service";
 import { useState } from "react";
 import ProgressBar from "./ProgressBar";
-import PetPage from "../../pages/PetPage";
 
 //Produces content for pet cards
 
@@ -14,10 +13,6 @@ function Pet(props) {
   function DeletePetHandler(petData) {
     DeletePet(petData.id);
     setDeletePet("Deleted");
-  }
-
-  function OpenPetHandler() {
-    PetPage();
   }
 
   var id = props.id;
@@ -48,13 +43,7 @@ function Pet(props) {
             {deletePet}
             <PetsIcon />
           </button>
-          <a
-            className={classes.actions}
-            href={url}
-            onClick={() => {
-              OpenPetHandler();
-            }}
-          >
+          <a className={classes.actions} href={url}>
             Open Pet
             <PetsIcon />
           </a>
