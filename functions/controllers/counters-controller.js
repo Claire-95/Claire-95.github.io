@@ -1,4 +1,4 @@
-/* eslint linebreak-style: ["error", "windows"] */
+/* eslint-disable linebreak-style */
 /* eslint-disable indent */
 /* eslint new-cap: ["error", { "capIsNewExceptions": ["Router"] }] */
 const db = require("../services/database-service");
