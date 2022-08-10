@@ -20,12 +20,6 @@ const GetCounter = () => {
 
       console.log(counters);
     });
-
-  return (
-    <section>
-      <h1>counters</h1>
-    </section>
-  );
 };
 
 export { GetCounter };

@@ -5,8 +5,11 @@ import PetsIcon from "@mui/icons-material/Pets";
 import { DeletePet } from "../../services/pet-service";
 import { useState } from "react";
 import ProgressBar from "./ProgressBar";
+import { GetCounter } from "../../services/counter-service";
 
 function Pet(props) {
+  GetCounter();
+
   const [deletePet, setDeletePet] = useState("Delete Pet");
 
   function DeletePetHandler(petData) {
