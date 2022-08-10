@@ -22,6 +22,7 @@ function UserGreeting() {
       <Routes>
         <Route path="/" element={<NavBar />}>
           <Route index element={<AllPets />} />
+          <Route path="" element={<AllPets />} />
           <Route path="sign-in" element={<SignIn />} />
           <Route path="new-pet" element={<AddNewPet />} />
           <Route path={petPath} element={<PetPage />} />
