@@ -9,6 +9,9 @@ const counterCollection = "counters";
 
 router.get("/", async (req, res) => {
   try {
+    if (!req.user.loggedIn) {
+      res.status(401).send({});
+    }
     const counterQuerySnapshot = await db.collection(counterCollection).get();
     const counters = [];
     counterQuerySnapshot.forEach((doc) => {
