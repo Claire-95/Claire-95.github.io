@@ -22,7 +22,6 @@ const NavBar = () => {
         <nav className={classState}>
           <a href="/all-pets">All Pets</a>
           <a href="/new-pet">Add New Pet</a>
-          <a href="/pet-page">Pet Page</a>
           <a
             href="/all-pets"
             onClick={() => {

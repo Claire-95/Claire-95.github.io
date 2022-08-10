@@ -1,6 +1,6 @@
 // import classes from "./PetList.module.css";
 import Card from "../ui/Card";
-import classes from "./Pet.module.css";
+import classes from "./PetList.module.css";
 import PetsIcon from "@mui/icons-material/Pets";
 import { DeletePet } from "../../services/pet-service";
 import { useState } from "react";
