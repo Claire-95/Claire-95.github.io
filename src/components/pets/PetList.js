@@ -1,5 +1,31 @@
-import { Pet } from "./Pet";
 import classes from "./PetList.module.css";
+import Card from "../ui/Card";
+import PetsIcon from "@mui/icons-material/Pets";
+
+//Produces content for pet cards
+
+function Pet(props) {
+  var id = props.id;
+
+  var url = "/pet-page/" + id;
+
+  return (
+    <li className={classes.item}>
+      <Card>
+        <div className={classes.content}>
+          <h3>{props.firstName}</h3>
+          <p>{props.species}</p>
+        </div>
+        <div className={classes.actions}>
+          <a className={classes.actions} href={url}>
+            Open Pet
+            <PetsIcon />
+          </a>
+        </div>
+      </Card>
+    </li>
+  );
+}
 
 function PetList(props) {
   return (
