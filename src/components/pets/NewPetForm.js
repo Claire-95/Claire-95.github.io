@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function NewPetForm(props) {
   let navigate = useNavigate();
+
   const firstNameInputRef = useRef();
   const lastNameInputRef = useRef();
   const speciesInputRef = useRef();
