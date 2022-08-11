@@ -1,8 +1,10 @@
 import { useRef } from "react";
 import Card from "../ui/Card";
 import classes from "./NewPetForm.module.css";
+import { useNavigate } from "react-router-dom";
 
 function NewPetForm(props) {
+  let navigate = useNavigate();
   const firstNameInputRef = useRef();
   const lastNameInputRef = useRef();
   const speciesInputRef = useRef();
@@ -32,6 +34,8 @@ function NewPetForm(props) {
     speciesInputRef.current.value = "";
     metricInputRef.current.value = "";
     amountInputRef.current.value = "";
+
+    navigate("/all-pets");
   }
 
   return (
