@@ -6,8 +6,14 @@ import { DeletePet } from "../../services/pet-service";
 import { useState } from "react";
 import ProgressBar from "./ProgressBar";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 //Produces content for pet cards
+
+function Redirect() {
+  let navigate = useNavigate();
+  navigate("/all-pets");
+}
 
 function Pet(props) {
   const [deletePet, setDeletePet] = useState("Delete Pet");
@@ -65,4 +71,4 @@ function CurrentPet(props) {
   );
 }
 
-export { CurrentPet };
+export { CurrentPet, Redirect };

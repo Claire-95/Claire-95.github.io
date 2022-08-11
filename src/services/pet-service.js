@@ -2,7 +2,7 @@ import restClient from "./rest-client-service";
 import { useState, useEffect } from "react";
 import { PetList } from "../components/pets/PetList";
 import { CurrentPet } from "../components/pets/CurrentPet";
-import { useNavigate } from "react-router-dom";
+import { Redirect } from "../components/pets/CurrentPet";
 
 const urlBase = require("../constants");
 const axios = require("axios").default;
@@ -74,10 +74,9 @@ const SetPet = (props) => {
 
 //Delete pet
 const DeletePet = (petId) => {
-  let navigate = useNavigate();
   axios.delete(urlBase.default + "pets/" + petId).then((res) => {
     console.log(res);
-    navigate("/all-pets");
+    Redirect();
   });
 };
 
