@@ -5,15 +5,19 @@ import PetsIcon from "@mui/icons-material/Pets";
 import { DeletePet } from "../../services/pet-service";
 import { useState } from "react";
 import ProgressBar from "./ProgressBar";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 //Produces content for pet cards
 
 function Pet(props) {
   const [deletePet, setDeletePet] = useState("Delete Pet");
+  let navigate = useNavigate();
 
   function DeletePetHandler(petData) {
     DeletePet(petData.id);
     setDeletePet("Deleted");
+    navigate("/all-pets");
   }
 
   var id = props.id;

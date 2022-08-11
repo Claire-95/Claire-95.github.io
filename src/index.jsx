@@ -13,9 +13,7 @@ import loginService from "./services/login-service";
 
 function UserGreeting() {
   const urlId = window.location.pathname.split("/").pop();
-  console.log(urlId);
   var petPath = "pet-page/" + urlId;
-  console.log(petPath);
 
   return (
     <BrowserRouter>

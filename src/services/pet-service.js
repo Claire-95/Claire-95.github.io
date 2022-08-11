@@ -30,7 +30,6 @@ const GetPets = () => {
         }
 
         setIsLoading(false);
-        console.log("done loading");
         setLoadedPets(pets);
       });
   }, []);
@@ -44,14 +43,9 @@ const GetPets = () => {
   }
 
   const urlId = window.location.pathname.split("/").pop();
-  console.log(urlId);
-  console.log(loadedPets);
-  console.log(loadedPets.length);
 
   for (var i = 0; i < loadedPets.length; i++) {
     if (loadedPets[i].id === urlId) {
-      console.log("it's a match");
-      console.log(loadedPets[i]);
       var currentPet = loadedPets[i];
       var currentPetId = currentPet.id;
     }
