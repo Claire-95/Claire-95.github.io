@@ -2,7 +2,6 @@ import restClient from "./rest-client-service";
 import { useState, useEffect } from "react";
 import { PetList } from "../components/pets/PetList";
 import { CurrentPet } from "../components/pets/CurrentPet";
-import { Redirect } from "../components/pets/CurrentPet";
 
 const urlBase = require("../constants");
 const axios = require("axios").default;
@@ -76,7 +75,6 @@ const SetPet = (props) => {
 const DeletePet = (petId) => {
   axios.delete(urlBase.default + "pets/" + petId).then((res) => {
     console.log(res);
-    Redirect();
   });
 };
 

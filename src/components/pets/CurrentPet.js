@@ -21,6 +21,7 @@ function Pet(props) {
   function DeletePetHandler(petData) {
     DeletePet(petData.id);
     setDeletePet("Deleted");
+    Redirect();
   }
 
   var id = props.id;
