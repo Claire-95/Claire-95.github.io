@@ -6,10 +6,7 @@ module.exports = (req, res, next) => {
   try {
     console.log(req.body);
     const authHeader = req.get("Authentication");
-    console.log(authHeader);
-    console.log("we made it past setting authHeader");
     if (authHeader !== undefined) {
-      console.log("but did we make it past the if statement?");
       admin
         .auth()
         .verifyIdToken(authHeader.replace("Bearer ", ""))
