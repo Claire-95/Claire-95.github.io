@@ -1,7 +1,7 @@
 import { React, useState } from "react";
-import classes from "./ProgressBar.module.css";
+import classes from "./Counter.module.css";
 
-export default function ProgressBar() {
+export default function Counter() {
   const [counter, setCounter] = useState(0);
 
   //increase counter

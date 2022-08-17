@@ -20,7 +20,6 @@ router.get("/", async (req, res) => {
         data: doc.data(),
       });
     });
-    console.log(counters);
     res.status(200).json(counters);
   } catch (error) {
     console.log(error);

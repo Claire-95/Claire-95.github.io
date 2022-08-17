@@ -17,7 +17,7 @@ const GetCounters = () => {
 
         counters.push(counter);
       }
-
+      console.log(counters);
       return counters;
     });
 };

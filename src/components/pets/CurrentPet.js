@@ -4,7 +4,7 @@ import classes from "./PetList.module.css";
 import PetsIcon from "@mui/icons-material/Pets";
 import { DeletePet } from "../../services/pet-service";
 import { useState } from "react";
-import ProgressBar from "./ProgressBar";
+import Counter from "./Counter";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -39,7 +39,7 @@ function Pet(props) {
         <p>
           {props.amount} {props.metric} per day
         </p>
-        <ProgressBar />
+        <Counter />
       </div>
       <div className={classes.actions}>
         <button
