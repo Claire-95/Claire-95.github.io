@@ -1,6 +1,6 @@
 import restClient from "./rest-client-service";
 
-const GetCounters = () => {
+const GetCounters = (id) => {
   restClient()
     .get("counters")
     .then((response) => {
@@ -18,6 +18,7 @@ const GetCounters = () => {
         counters.push(counter);
       }
       console.log(counters);
+      console.log(id);
       return counters;
     });
 };

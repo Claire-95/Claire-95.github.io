@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import classes from "./Counter.module.css";
+// import { GetCounters } from "../../services/counter-service";
 
 export default function Counter() {
   const [counter, setCounter] = useState(0);

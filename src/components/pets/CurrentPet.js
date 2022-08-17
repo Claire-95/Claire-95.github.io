@@ -7,6 +7,7 @@ import { useState } from "react";
 import Counter from "./Counter";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { GetCounters } from "../../services/counter-service";
 
 //Produces content for pet cards
 
@@ -30,12 +31,16 @@ function Pet(props) {
 
   console.log(url);
 
+  GetCounters(id);
+
   return (
     <Card>
       <div className={classes.content}>
         <h3>{props.firstName}</h3>
         <p>{props.lastName}</p>
         <p>{props.species}</p>
+        <p>{props.species}</p>
+
         <p>
           {props.amount} {props.metric} per day
         </p>
