@@ -1,9 +1,8 @@
-import urlBase from "../constants";
 import restClient from "./rest-client-service";
 
 const GetCounters = () => {
   restClient()
-    .get(urlBase + "counters")
+    .get("counters")
     .then((response) => {
       return response.data;
     })

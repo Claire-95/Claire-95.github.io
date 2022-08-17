@@ -12,6 +12,7 @@ const authenticationMiddleware = require("./middleware/authentication-middleware
 admin.initializeApp(functions.config().firebase);
 
 const petsController = require("./controllers/pets-controller");
+const countersController = require("./controllers/counters-controller");
 
 // initialize express server
 const main = express();
@@ -22,6 +23,7 @@ main.use(bodyParser.urlencoded({ extended: false }));
 main.use(authenticationMiddleware);
 
 main.use("/pets", petsController);
+main.use("/counters", countersController);
 
 // define google cloud function name
 exports.webApi = functions.https.onRequest(main);
