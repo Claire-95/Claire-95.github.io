@@ -4,10 +4,10 @@
 const db = require("../services/database-service");
 const express = require("express");
 // eslint-disable-next-line object-curly-spacing
-const route = express.Router();
+const router = express.Router();
 const counterCollection = "counters";
 
-route.get("/", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     if (!req.user.loggedIn) {
       res.status(401).send({});
@@ -27,4 +27,4 @@ route.get("/", async (req, res) => {
   }
 });
 
-module.exports = route;
+module.exports = router;
