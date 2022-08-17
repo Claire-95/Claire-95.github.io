@@ -13,7 +13,6 @@ router.get("/", async (req, res) => {
       res.status(401).send({});
     }
     const counterQuerySnapshot = await db.collection(counterCollection).get();
-    console.log(counterCollection);
     const counters = [];
     counterQuerySnapshot.forEach((doc) => {
       counters.push({
@@ -21,6 +20,7 @@ router.get("/", async (req, res) => {
         data: doc.data(),
       });
     });
+    console.log(counters);
     res.status(200).json(counters);
   } catch (error) {
     console.log(error);
