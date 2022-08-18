@@ -1,7 +1,7 @@
 import restClient from "./rest-client-service";
 import { useState, useEffect } from "react";
 import { PetList } from "../components/pets/PetList";
-import { CurrentPet } from "../components/pets/CurrentPet";
+import { CounterList } from "../components/pets/CounterList";
 
 const urlBase = require("../constants");
 const axios = require("axios").default;
@@ -52,7 +52,7 @@ const GetPets = () => {
   }
 
   if (urlId === currentPetId) {
-    return <CurrentPet pet={currentPet} />;
+    return <CounterList />;
   } else {
     return <PetList pets={loadedPets} />;
   }

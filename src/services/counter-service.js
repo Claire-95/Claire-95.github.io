@@ -1,26 +1,53 @@
 import restClient from "./rest-client-service";
+import { useState, useEffect } from "react";
+import { CounterList } from "../components/pets/CounterList";
 
-const GetCounters = (id) => {
-  restClient()
-    .get("counters")
-    .then((response) => {
-      return response.data;
-    })
-    .then((data) => {
-      const counters = [];
+const GetCounters = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadedCounters, setLoadedCounters] = useState([]);
 
-      for (const key in data) {
-        const counter = {
-          id: key,
-          ...data[key],
-        };
+  useEffect(() => {
+    setIsLoading(true);
+    restClient()
+      .get("counters")
+      .then((response) => {
+        return response.data;
+      })
+      .then((data) => {
+        const counters = [];
 
-        counters.push(counter);
-      }
+        for (const key in data) {
+          const counter = {
+            id: key,
+            ...data[key],
+          };
+
+          counters.push(counter);
+        }
+        setIsLoading(false);
+        setLoadedCounters(counters);
+      });
+  }, []);
+
+  if (isLoading) {
+    return (
+      <section>
+        <p>Loading...</p>
+      </section>
+    );
+  }
+
+  const urlId = window.location.pathname.split("/").pop();
+  const counters = [];
+  console.log(loadedCounters);
+
+  for (var i = 0; i < loadedCounters.length; i++) {
+    if (loadedCounters[i].data.linkedPet === urlId) {
+      counters.push(loadedCounters[i]);
       console.log(counters);
-      console.log(id);
-      return counters;
-    });
+      return <CounterList counters={counters} />;
+    }
+  }
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
