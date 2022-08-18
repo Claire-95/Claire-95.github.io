@@ -10,7 +10,10 @@ function CurrentPet(props) {
     <li className={classes.item}>
       <Card>
         <div className={classes.content}>
-          <h3>{props.value}</h3>
+          <h3>{props.linkedPetName}</h3>
+          <p>
+            Has been fed {props.value} of {props.amount} {props.metric}
+          </p>
         </div>
         <div className={classes.actions}></div>
       </Card>
@@ -28,6 +31,8 @@ function CounterList(props) {
           linkedPet={count.data.linkedPet}
           linkedPetName={count.data.linkedPetName}
           value={count.data.value}
+          amount={count.data.amount}
+          metric={count.data.metric}
         />
       ))}
     </ul>

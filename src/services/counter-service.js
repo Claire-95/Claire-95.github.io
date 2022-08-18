@@ -39,15 +39,13 @@ const GetCounters = () => {
 
   const urlId = window.location.pathname.split("/").pop();
   const counters = [];
-  console.log(loadedCounters);
 
   for (var i = 0; i < loadedCounters.length; i++) {
     if (loadedCounters[i].data.linkedPet === urlId) {
       counters.push(loadedCounters[i]);
-      console.log(counters);
-      return <CounterList counters={counters} />;
     }
   }
+  return <CounterList counters={counters} />;
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
