@@ -1,4 +1,4 @@
-import classes from "./PetList.module.css";
+import classes from "./CounterList.module.css";
 import Card from "../ui/Card";
 
 //Produces content for pet cards

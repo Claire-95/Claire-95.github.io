@@ -7,7 +7,9 @@ import PetsIcon from "@mui/icons-material/Pets";
 function Pet(props) {
   var id = props.id;
 
-  var url = "/pet-page/" + id;
+  var trackerList = "/pet-page/" + id;
+
+  var addTrackerPage = "/add-tracker/" + id;
 
   return (
     <li className={classes.item}>
@@ -17,8 +19,12 @@ function Pet(props) {
           <p>{props.species}</p>
         </div>
         <div className={classes.actions}>
-          <a className={classes.actions} href={url}>
-            Open Pet
+          <a className={classes.actions} href={trackerList}>
+            View Trackers
+            <PetsIcon />
+          </a>
+          <a className={classes.actions} href={addTrackerPage}>
+            Add Tracker
             <PetsIcon />
           </a>
         </div>

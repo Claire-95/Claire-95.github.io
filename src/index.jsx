@@ -10,10 +10,12 @@ import PetPage from "./pages/PetPage";
 import SignIn from "./pages/SignIn";
 import NoPage from "./pages/NoPage";
 import loginService from "./services/login-service";
+import AddTracker from "./pages/AddTracker";
 
 function UserGreeting() {
   const urlId = window.location.pathname.split("/").pop();
   var petPath = "pet-page/" + urlId;
+  var trackerPath = "add-tracker/" + urlId;
 
   return (
     <BrowserRouter>
@@ -25,6 +27,7 @@ function UserGreeting() {
           <Route path="new-pet" element={<AddNewPet />} />
           <Route path={petPath} element={<PetPage />} />
           <Route path="all-pets" element={<AllPets />} />
+          <Route path={trackerPath} element={<AddTracker />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
