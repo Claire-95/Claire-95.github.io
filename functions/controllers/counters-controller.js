@@ -27,4 +27,16 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.delete("/:counterId", async (req, res) => {
+  try {
+    const counterId = req.params.counterId;
+    console.log(counterId);
+    await db.collection(counterCollection).doc(counterId).delete();
+    res.status(200).json({});
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
+});
+
 module.exports = router;
