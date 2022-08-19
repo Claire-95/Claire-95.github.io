@@ -1,11 +1,17 @@
 import classes from "./PetList.module.css";
 import Card from "../ui/Card";
 import PetsIcon from "@mui/icons-material/Pets";
+import { DeletePet } from "../../services/pet-service";
 
 //Produces content for pet cards
 
+function DeletePetHandler(petData) {
+  DeletePet(petData.id);
+}
+
 function Pet(props) {
   var id = props.id;
+  console.log(props);
 
   var trackerList = "/pet-page/" + id;
 
@@ -15,7 +21,7 @@ function Pet(props) {
     <li className={classes.item}>
       <Card>
         <div className={classes.content}>
-          <h3>{props.firstName}</h3>
+          <h3>{props.name}</h3>
           <p>{props.species}</p>
         </div>
         <div className={classes.actions}>
@@ -27,6 +33,19 @@ function Pet(props) {
             Add Tracker
             <PetsIcon />
           </a>
+          <button className={classes.actions}>
+            Link Account
+            <PetsIcon />
+          </button>
+          <button
+            className={classes.actions}
+            onClick={() => {
+              DeletePetHandler(props);
+            }}
+          >
+            DeletePet
+            <PetsIcon />
+          </button>
         </div>
       </Card>
     </li>
@@ -40,11 +59,8 @@ function PetList(props) {
         <Pet
           key={pet.id}
           id={pet.id}
-          firstName={pet.data.petData.firstName}
-          lastName={pet.data.petData.lastName}
+          name={pet.data.petData.name}
           species={pet.data.petData.species}
-          amount={pet.data.petData.amount}
-          metric={pet.data.petData.metric}
         />
       ))}
     </ul>

@@ -2,6 +2,9 @@ import restClient from "./rest-client-service";
 import { useState, useEffect } from "react";
 import { CounterList } from "../components/pets/CounterList";
 
+const urlBase = require("../constants");
+const axios = require("axios").default;
+
 const GetCounters = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedCounters, setLoadedCounters] = useState([]);
@@ -48,5 +51,12 @@ const GetCounters = () => {
   return <CounterList counters={counters} />;
 };
 
+const DeleteCounter = (counterId) => {
+  console.log(counterId);
+  axios.delete(urlBase.default + "counters/" + counterId).then((res) => {
+    console.log(res);
+  });
+};
+
 // eslint-disable-next-line import/no-anonymous-default-export
-export { GetCounters };
+export { GetCounters, DeleteCounter };

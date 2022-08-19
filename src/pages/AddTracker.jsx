@@ -1,4 +1,4 @@
-import NewTrackerForm from "../components/pets/NewPetForm";
+import NewTrackerForm from "../components/pets/NewTrackerForm";
 import { SetPet } from "../services/pet-service";
 
 const AddNewPet = () => {

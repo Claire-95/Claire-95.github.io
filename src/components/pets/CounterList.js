@@ -1,10 +1,15 @@
 import classes from "./CounterList.module.css";
 import Card from "../ui/Card";
+import { DeleteCounter } from "../../services/counter-service";
 
 //Produces content for pet cards
 
 function CurrentPet(props) {
   console.log(props);
+
+  function DeleteTrackerHandler(counterData) {
+    DeleteCounter(counterData.id);
+  }
 
   return (
     <li className={classes.item}>
@@ -14,8 +19,15 @@ function CurrentPet(props) {
           <p>
             Has been fed {props.value} of {props.amount} {props.metric}
           </p>
+          <button
+            className={classes.actions}
+            onClick={() => {
+              DeleteTrackerHandler(props);
+            }}
+          >
+            Delete Tracker
+          </button>
         </div>
-        <div className={classes.actions}></div>
       </Card>
     </li>
   );
