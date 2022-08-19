@@ -1,18 +1,18 @@
 import NewTrackerForm from "../components/pets/NewTrackerForm";
-import { SetPet } from "../services/pet-service";
+import { SetCounter } from "../services/counter-service";
 
-const AddNewPet = () => {
-  function AddPetHandler(petData) {
-    console.log(petData);
-    SetPet(petData);
+const AddNewCounter = () => {
+  function AddCounterHandler(counterData) {
+    console.log(counterData);
+    SetCounter(counterData);
   }
 
   return (
     <section>
       <h1>Add New Tracker</h1>
-      <NewTrackerForm onAddPet={AddPetHandler} />
+      <NewTrackerForm onAddCounter={AddCounterHandler} />
     </section>
   );
 };
 
-export default AddNewPet;
+export default AddNewCounter;

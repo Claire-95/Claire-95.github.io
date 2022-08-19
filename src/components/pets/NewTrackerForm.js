@@ -17,18 +17,18 @@ function NewTrackerForm(props) {
     const enteredMetric = metricInputRef.current.value;
     const enteredAmount = amountInputRef.current.value;
 
-    const petData = {
+    const counterData = {
       trackable: enteredTrackable,
       metric: enteredMetric,
       amount: enteredAmount,
     };
-    props.onAddPet(petData);
+    props.onAddCounter(counterData);
 
     trackableInputRef.current.value = "";
     metricInputRef.current.value = "";
     amountInputRef.current.value = "";
 
-    navigate("/all-pets");
+    navigate("/all-tracks");
   }
 
   return (

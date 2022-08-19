@@ -51,6 +51,19 @@ const GetCounters = () => {
   return <CounterList counters={counters} />;
 };
 
+const SetCounter = (props) => {
+  var counterData = props;
+  console.log(counterData);
+  restClient()
+    .post("/counters", { counterData })
+    .then((response) => {
+      return response.data;
+    })
+    .then((res) => {
+      console.log(res);
+    });
+};
+
 const DeleteCounter = (counterId) => {
   console.log(counterId);
   axios.delete(urlBase.default + "counters/" + counterId).then((res) => {
@@ -59,4 +72,4 @@ const DeleteCounter = (counterId) => {
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export { GetCounters, DeleteCounter };
+export { GetCounters, DeleteCounter, SetCounter };
