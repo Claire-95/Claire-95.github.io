@@ -1,10 +1,9 @@
 import { useRef } from "react";
 import Card from "../ui/Card";
 import classes from "./NewPetForm.module.css";
-import { useNavigate } from "react-router-dom";
 
 function NewTrackerForm(props) {
-  let navigate = useNavigate();
+  const urlId = window.location.pathname.split("/").pop();
 
   const trackableInputRef = useRef();
   const metricInputRef = useRef();
@@ -16,19 +15,19 @@ function NewTrackerForm(props) {
     const enteredTrackable = trackableInputRef.current.value;
     const enteredMetric = metricInputRef.current.value;
     const enteredAmount = amountInputRef.current.value;
+    const thisPetId = urlId;
 
     const counterData = {
       trackable: enteredTrackable,
       metric: enteredMetric,
       amount: enteredAmount,
+      linkedPet: thisPetId,
     };
     props.onAddCounter(counterData);
 
     trackableInputRef.current.value = "";
     metricInputRef.current.value = "";
     amountInputRef.current.value = "";
-
-    navigate("/all-tracks");
   }
 
   return (
