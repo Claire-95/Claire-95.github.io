@@ -1,6 +1,6 @@
 import restClient from "./rest-client-service";
 import { useState, useEffect } from "react";
-import { CurrentPet } from "../components/pets/CounterList";
+import { CounterList } from "../components/pets/CounterList";
 
 const urlBase = require("../constants");
 const axios = require("axios").default;
@@ -55,7 +55,8 @@ const GetCounters = () => {
       console.log(counters);
     }
   }
-  return <CurrentPet counters={counters} />;
+  console.log(counters);
+  return <CounterList counters={counters} />;
 };
 
 const SetCounter = (props) => {

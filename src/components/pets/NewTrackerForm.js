@@ -3,6 +3,7 @@ import Card from "../ui/Card";
 import classes from "./NewPetForm.module.css";
 
 function NewTrackerForm(props) {
+  console.log(props);
   const urlId = window.location.pathname.split("/").pop();
 
   const trackableInputRef = useRef();

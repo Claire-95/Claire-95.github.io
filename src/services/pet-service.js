@@ -54,6 +54,7 @@ const GetPets = () => {
   if (urlId === currentPetId) {
     return <CounterList />;
   } else {
+    console.log(loadedPets);
     return <PetList pets={loadedPets} />;
   }
 };
