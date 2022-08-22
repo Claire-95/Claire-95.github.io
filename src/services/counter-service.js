@@ -75,12 +75,11 @@ const SetCounter = (props) => {
 const UpdateCounter = (props) => {
   var counterData = props;
   const counterId = counterData.id;
-  const value = counterData.value;
 
-  console.log(value);
+  console.log(counterData);
 
   restClient()
-    .patch(urlBase.default + "counters/" + counterId, { value: value })
+    .patch(urlBase.default + "counters/" + counterId, { counterData })
     .then((response) => {
       return response.data;
     })

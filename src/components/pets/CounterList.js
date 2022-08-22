@@ -11,10 +11,26 @@ function DeleteTrackerHandler(counterData) {
   DeleteCounter(counterData.id);
 }
 
-function UpdateTrackerHandler(counterData) {
+function IncrementTrackerHandler(counterData) {
   console.log(counterData);
   console.log(counterData.value);
   var value = counterData.value + 1;
+  var newData = {
+    amount: counterData.amount,
+    id: counterData.id,
+    linkedPet: counterData.linkedPet,
+    metric: counterData.metric,
+    trackable: counterData.trackable,
+    value: value,
+  };
+  console.log(newData);
+  UpdateCounter(newData);
+}
+
+function DecrementTrackerHandler(counterData) {
+  console.log(counterData);
+  console.log(counterData.value);
+  var value = counterData.value - 1;
   var newData = {
     amount: counterData.amount,
     id: counterData.id,
@@ -47,10 +63,18 @@ function CurrentPet(props) {
           <button
             className={classes.button}
             onClick={() => {
-              UpdateTrackerHandler(props);
+              IncrementTrackerHandler(props);
             }}
           >
-            Increment Tracker <PetsIcon />
+            Increment Tracker +
+          </button>
+          <button
+            className={classes.button}
+            onClick={() => {
+              DecrementTrackerHandler(props);
+            }}
+          >
+            Decrement Tracker -
           </button>
         </div>
       </Card>
