@@ -72,6 +72,25 @@ const SetCounter = (props) => {
     });
 };
 
+const UpdateCounter = (props) => {
+  var counterData = props;
+  const id = counterData.id;
+  const url = "/counters/" + id + "/counterData";
+  const value = counterData.value;
+
+  console.log(url);
+  console.log(value);
+
+  restClient()
+    .patch(url, { value: 3 })
+    .then((response) => {
+      return response.data;
+    })
+    .then((res) => {
+      console.log(res);
+    });
+};
+
 const DeleteCounter = (counterId) => {
   console.log(counterId);
   axios.delete(urlBase.default + "counters/" + counterId).then((res) => {
@@ -80,4 +99,4 @@ const DeleteCounter = (counterId) => {
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export { GetCounters, DeleteCounter, SetCounter };
+export { GetCounters, DeleteCounter, SetCounter, UpdateCounter };

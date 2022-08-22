@@ -1,6 +1,7 @@
 import classes from "./CounterList.module.css";
 import Card from "../ui/Card";
 import { DeleteCounter } from "../../services/counter-service";
+import { UpdateCounter } from "../../services/counter-service";
 import PetsIcon from "@mui/icons-material/Pets";
 
 //Produces content for pet cards
@@ -8,6 +9,22 @@ import PetsIcon from "@mui/icons-material/Pets";
 function DeleteTrackerHandler(counterData) {
   console.log(counterData);
   DeleteCounter(counterData.id);
+}
+
+function UpdateTrackerHandler(counterData) {
+  console.log(counterData);
+  console.log(counterData.value);
+  var value = counterData.value + 1;
+  var newData = {
+    amount: counterData.amount,
+    id: counterData.id,
+    linkedPet: counterData.linkedPet,
+    metric: counterData.metric,
+    trackable: counterData.trackable,
+    value: value,
+  };
+  console.log(newData);
+  UpdateCounter(newData);
 }
 
 function CurrentPet(props) {
@@ -26,6 +43,14 @@ function CurrentPet(props) {
             }}
           >
             Delete Tracker <PetsIcon />
+          </button>
+          <button
+            className={classes.button}
+            onClick={() => {
+              UpdateTrackerHandler(props);
+            }}
+          >
+            Increment Tracker <PetsIcon />
           </button>
         </div>
       </Card>
