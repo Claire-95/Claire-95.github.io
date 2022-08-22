@@ -40,12 +40,15 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.patch("/", async (req, res) => {
+router.patch("/:counterId", async (req, res) => {
   try {
+    const counterId = req.params.counterId;
+    console.log(counterId);
     console.log(req.user);
     console.log(req.user.email);
+    console.log(req.body);
     req.body.owner = req.user.email;
-    await db.collection(counterCollection).doc().set(req.body);
+    await db.collection(counterCollection).doc(counterId).set(req.body);
     res.status(200).json({});
   } catch (error) {
     console.log(error);
