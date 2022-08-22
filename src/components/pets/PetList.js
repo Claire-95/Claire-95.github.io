@@ -18,27 +18,27 @@ function Pet(props) {
   var addTrackerPage = "/add-tracker/" + id;
 
   return (
-    <li className={classes.item}>
+    <li>
       <Card>
-        <div className={classes.content}>
+        <div>
           <h3>{props.name}</h3>
           <p>{props.species}</p>
         </div>
-        <div className={classes.actions}>
-          <a className={classes.actions} href={trackerList}>
+        <div>
+          <a className={classes.button} href={trackerList}>
             View Trackers
             <PetsIcon />
           </a>
-          <a className={classes.actions} href={addTrackerPage}>
+          <a className={classes.button} href={addTrackerPage}>
             Add Tracker
             <PetsIcon />
           </a>
-          <button className={classes.actions}>
+          <button className={classes.button}>
             Link Account
             <PetsIcon />
           </button>
           <button
-            className={classes.actions}
+            className={classes.button}
             onClick={() => {
               DeletePetHandler(props);
             }}

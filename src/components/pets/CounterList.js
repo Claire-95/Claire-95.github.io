@@ -1,6 +1,7 @@
 import classes from "./CounterList.module.css";
 import Card from "../ui/Card";
 import { DeleteCounter } from "../../services/counter-service";
+import PetsIcon from "@mui/icons-material/Pets";
 
 //Produces content for pet cards
 
@@ -11,20 +12,20 @@ function DeleteTrackerHandler(counterData) {
 
 function CurrentPet(props) {
   return (
-    <li className={classes.item}>
+    <li>
       <Card>
-        <div className={classes.content}>
+        <div>
           <h3>{props.trackable}</h3>
           <p>
             {props.value} of {props.amount} {props.metric} complete!
           </p>
           <button
-            className={classes.actions}
+            className={classes.button}
             onClick={() => {
               DeleteTrackerHandler(props);
             }}
           >
-            Delete Tracker
+            Delete Tracker <PetsIcon />
           </button>
         </div>
       </Card>
