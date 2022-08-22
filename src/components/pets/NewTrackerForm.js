@@ -23,6 +23,7 @@ function NewTrackerForm(props) {
       metric: enteredMetric,
       amount: enteredAmount,
       linkedPet: thisPetId,
+      value: 0,
     };
     props.onAddCounter(counterData);
 
