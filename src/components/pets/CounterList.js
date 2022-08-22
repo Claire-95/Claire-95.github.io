@@ -9,17 +9,14 @@ function DeleteTrackerHandler(counterData) {
   DeleteCounter(counterData.id);
 }
 
-var value = 0;
-
 function CurrentPet(props) {
   return (
     <li className={classes.item}>
       <Card>
         <div className={classes.content}>
-          <h3>{props.linkedPetName}</h3>
           <h3>{props.trackable}</h3>
           <p>
-            {value} of {props.amount} {props.metric} complete!
+            {props.value} of {props.amount} {props.metric} complete!
           </p>
           <button
             className={classes.actions}
