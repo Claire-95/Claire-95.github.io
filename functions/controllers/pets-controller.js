@@ -36,12 +36,12 @@ router.post("/", async (req, res) => {
     req.body.owner = req.user.email;
     const owner = req.user.email;
 
-    console.log(req.body.name);
+    console.log(req.body.petData.name);
 
     await db.collection(petCollection).doc().set({
-      name: req.body.name,
+      name: req.body.petData.name,
       owner: owner,
-      species: req.body.species,
+      species: req.body.petData.species,
       // eslint-disable-next-line object-curly-spacing
       linkedUsers: { owner },
     });
