@@ -35,13 +35,16 @@ router.post("/", async (req, res) => {
   try {
     req.body.owner = req.user.email;
     const owner = req.user.email;
-    const petData = req.body;
-    console.log(req.body.name);
-    console.log(req.body.petData.name);
 
-    // eslint-disable-next-line object-curly-spacing
-    const finalData = { petData, owners: { owner } };
-    await db.collection(petCollection).doc().set(finalData);
+    console.log(req.body.name);
+
+    await db.collection(petCollection).doc().set({
+      name: req.body.name,
+      owner: owner,
+      species: req.body.species,
+      // eslint-disable-next-line object-curly-spacing
+      linkedUsers: { owner },
+    });
     res.status(200).json({});
   } catch (error) {
     console.log(error);
