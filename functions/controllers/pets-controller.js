@@ -34,9 +34,14 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     console.log(req.user);
+    console.log(req.body);
     console.log(req.user.email);
-    req.body.owner = req.user.email;
-    await db.collection(petCollection).doc().set(req.body);
+    const owner = req.user.email;
+    const petData = req.body;
+
+    // eslint-disable-next-line object-curly-spacing
+    const finalData = { petData, owners: { owner } };
+    await db.collection(petCollection).doc().set(finalData);
     res.status(200).json({});
   } catch (error) {
     console.log(error);

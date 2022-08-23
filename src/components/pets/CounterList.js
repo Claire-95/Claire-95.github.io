@@ -2,7 +2,7 @@ import classes from "./CounterList.module.css";
 import Card from "../ui/Card";
 import { DeleteCounter } from "../../services/counter-service";
 import { UpdateCounter } from "../../services/counter-service";
-import PetsIcon from "@mui/icons-material/Pets";
+// import PetsIcon from "@mui/icons-material/Pets";
 
 //Produces content for pet cards
 
@@ -58,7 +58,7 @@ function CurrentPet(props) {
               DeleteTrackerHandler(props);
             }}
           >
-            Delete Tracker <PetsIcon />
+            Delete Tracker
           </button>
           <button
             className={classes.button}

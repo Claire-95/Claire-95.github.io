@@ -61,6 +61,7 @@ function PetList(props) {
           id={pet.id}
           name={pet.data.petData.name}
           species={pet.data.petData.species}
+          owner={pet.data.owner}
         />
       ))}
     </ul>
