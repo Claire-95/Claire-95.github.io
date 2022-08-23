@@ -34,17 +34,9 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     req.body.owner = req.user.email;
-    const owner = req.user.email;
 
-    console.log(req.body.petData.name);
-
-    await db.collection(petCollection).doc().set({
-      name: req.body.petData.name,
-      owner: owner,
-      species: req.body.petData.species,
-      // eslint-disable-next-line object-curly-spacing
-      linkedUsers: { owner },
-    });
+    req.body.owner = req.user.email;
+    await db.collection(petCollection).doc().set(req.body);
     res.status(200).json({});
   } catch (error) {
     console.log(error);

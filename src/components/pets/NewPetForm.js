@@ -14,10 +14,12 @@ function NewPetForm(props) {
 
     const enteredname = nameInputRef.current.value;
     const enteredSpecies = speciesInputRef.current.value;
+    let sharedOwner = [];
 
     const petData = {
       name: enteredname,
       species: enteredSpecies,
+      sharedOwners: sharedOwner,
     };
     props.onAddPet(petData);
 
