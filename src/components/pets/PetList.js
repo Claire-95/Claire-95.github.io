@@ -11,11 +11,16 @@ function DeletePetHandler(petData) {
 
 function Pet(props) {
   var id = props.id;
+  var pet = props.name + "/" + props.species;
   console.log(props);
+  console.log(id);
+  console.log(pet);
 
   var trackerList = "/pet-page/" + id;
 
   var addTrackerPage = "/add-tracker/" + id;
+
+  var editPetPage = "/edit-pet/" + pet + "/" + id;
 
   return (
     <li>
@@ -33,17 +38,17 @@ function Pet(props) {
             Add Tracker
             <PetsIcon />
           </a>
-          <button className={classes.button}>
-            Link Account
+          <a className={classes.button} href={editPetPage}>
+            Edit Pet
             <PetsIcon />
-          </button>
+          </a>
           <button
             className={classes.button}
             onClick={() => {
               DeletePetHandler(props);
             }}
           >
-            DeletePet
+            Delete Pet
             <PetsIcon />
           </button>
         </div>
