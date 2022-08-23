@@ -38,7 +38,8 @@ router.post("/", async (req, res) => {
     console.log(req.user.email);
     req.body.owner = req.user.email;
     const owner = req.user.email;
-    const petData = req;
+    // eslint-disable-next-line object-curly-spacing
+    const petData = { name: req.body.name, species: req.body.species };
 
     // eslint-disable-next-line object-curly-spacing
     const finalData = { petData, owners: { owner } };
