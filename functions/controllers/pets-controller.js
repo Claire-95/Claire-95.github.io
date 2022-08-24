@@ -48,7 +48,7 @@ router.patch("/:petId", async (req, res) => {
   try {
     const petId = req.params.petId;
 
-    const sharedOwners = req.body.newData.sharedOwners;
+    const sharedOwners = req.body.petData.sharedOwners;
     console.log(sharedOwners);
 
     await db
