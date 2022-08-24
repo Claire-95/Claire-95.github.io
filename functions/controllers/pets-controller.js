@@ -5,6 +5,7 @@ const express = require("express");
 // eslint-disable-next-line object-curly-spacing
 const router = express.Router();
 const petCollection = "pets";
+const FieldValue = require("firebase-admin").firestore.FieldValue;
 
 // Get pets
 router.get("/", async (req, res) => {
@@ -46,26 +47,16 @@ router.post("/", async (req, res) => {
 router.patch("/:petId", async (req, res) => {
   try {
     const petId = req.params.petId;
-    const species = req.body.species;
-    const name = req.body.name;
 
-    console.log(species);
-
-    const setData = {
-      id: petId,
-      name: name,
-      species: species,
-    };
-
-    const newOwner = req.params.sharedOwners;
-
-    req.body.owner = req.user.email;
+    const sharedOwners = req.body.sharedOwners;
+    console.log(sharedOwners);
 
     await db
       .collection(petCollection)
       .doc(petId)
-      .set(setData)
-      .arrayUnion(newOwner);
+      .update({
+        sharedOwners: FieldValue.arrayUnion(sharedOwners),
+      });
 
     res.status(200).json({});
   } catch (error) {
