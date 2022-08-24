@@ -49,10 +49,6 @@ router.patch("/:petId", async (req, res) => {
     const species = req.body.species;
     const name = req.body.name;
 
-    console.log(req.body);
-
-    console.log(req.name);
-
     const setData = {
       id: petId,
       name: name,
@@ -60,12 +56,6 @@ router.patch("/:petId", async (req, res) => {
     };
 
     const newOwner = req.params.sharedOwners;
-
-    console.log(newOwner);
-
-    console.log(petId);
-
-    console.log(setData);
 
     req.body.owner = req.user.email;
 
