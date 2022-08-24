@@ -46,11 +46,15 @@ router.post("/", async (req, res) => {
 router.patch("/:petId", async (req, res) => {
   try {
     const petId = req.params.petId;
+    const species = req.body.species;
+    const name = req.body.name;
+
+    console.log(name);
 
     const setData = {
       id: petId,
-      name: req.params.petId,
-      species: req.params.species,
+      name: name,
+      species: species,
     };
 
     const newOwner = req.params.sharedOwners;
