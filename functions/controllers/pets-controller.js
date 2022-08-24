@@ -42,6 +42,27 @@ router.post("/", async (req, res) => {
   }
 });
 
+// Update Pet
+router.patch("/:petId", async (req, res) => {
+  try {
+    const petId = req.params.petId;
+    console.log(petId);
+    console.log(req.user.email);
+    console.log(req.body);
+    req.body.owner = req.user.email;
+    await db
+      .collection(petCollection)
+      .doc(petId)
+      .set(req.body)
+      .arrayUnion(req.body.sharedOwners);
+
+    res.status(200).json({});
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
+});
+
 // Delete pet
 router.delete("/:petId", async (req, res) => {
   try {

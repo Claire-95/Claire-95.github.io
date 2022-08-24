@@ -72,6 +72,22 @@ const SetPet = (props) => {
     });
 };
 
+const UpdatePet = (props) => {
+  var newPetData = props;
+  const petId = newPetData.id;
+
+  console.log(petId);
+
+  restClient()
+    .patch(urlBase.default + "pets/" + petId, { newPetData })
+    .then((response) => {
+      return response.data;
+    })
+    .then((res) => {
+      console.log(res);
+    });
+};
+
 //Delete pet
 const DeletePet = (petId) => {
   axios.delete(urlBase.default + "pets/" + petId).then((res) => {
@@ -80,4 +96,4 @@ const DeletePet = (petId) => {
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export { GetPets, SetPet, DeletePet };
+export { GetPets, SetPet, DeletePet, UpdatePet };

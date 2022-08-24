@@ -14,10 +14,6 @@ function EditPetForm(props) {
   const oldSpecies = editingPet[1];
   const foreverId = editingPet[2];
 
-  console.log(oldName);
-  console.log(oldSpecies);
-  console.log(foreverId);
-
   const nameInputRef = useRef();
   const speciesInputRef = useRef();
   const sharedOwnerInputRef = useRef();
@@ -29,18 +25,17 @@ function EditPetForm(props) {
     const enteredSpecies = speciesInputRef.current.value;
     const enteredSharedOwner = sharedOwnerInputRef.current.value;
 
-    const petData = {
+    const updatedPetData = {
       name: enteredname,
       species: enteredSpecies,
       sharedOwners: enteredSharedOwner,
+      id: foreverId,
     };
-    props.onEditPet(petData);
+    props.onEditPet(updatedPetData);
 
     nameInputRef.current.value = "";
     speciesInputRef.current.value = "";
     sharedOwnerInputRef.current.value = "";
-
-    // navigate("/all-pets");
   }
 
   return (
