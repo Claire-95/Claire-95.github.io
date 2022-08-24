@@ -1,13 +1,8 @@
 import classes from "./PetList.module.css";
 import Card from "../ui/Card";
 import PetsIcon from "@mui/icons-material/Pets";
-import { DeletePet } from "../../services/pet-service";
 
 //Produces content for pet cards
-
-function DeletePetHandler(petData) {
-  DeletePet(petData.id);
-}
 
 function Pet(props) {
   var id = props.id;
@@ -42,15 +37,6 @@ function Pet(props) {
             Edit Pet
             <PetsIcon />
           </a>
-          <button
-            className={classes.button}
-            onClick={() => {
-              DeletePetHandler(props);
-            }}
-          >
-            Delete Pet
-            <PetsIcon />
-          </button>
         </div>
       </Card>
     </li>

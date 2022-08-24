@@ -5,16 +5,14 @@ const EditPet = () => {
   function EditPetHandler(updatedPetData) {
     console.log(updatedPetData);
 
-    // var newData = {
-    //   amount: counterData.amount,
-    //   id: counterData.id,
-    //   linkedPet: counterData.linkedPet,
-    //   metric: counterData.metric,
-    //   trackable: counterData.trackable,
-    //   value: value,
-    // };
-    // console.log(newData);
-    UpdatePet(updatedPetData);
+    var newData = {
+      id: updatedPetData.id,
+      name: updatedPetData.name,
+      species: updatedPetData.species,
+    };
+    console.log(newData);
+
+    UpdatePet(newData);
   }
   return <EditPetForm onEditPet={EditPetHandler} />;
 };

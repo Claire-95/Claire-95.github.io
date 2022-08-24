@@ -77,6 +77,7 @@ const UpdatePet = (props) => {
   const petId = newPetData.id;
 
   console.log(petId);
+  console.log(newPetData);
 
   restClient()
     .patch(urlBase.default + "pets/" + petId, { newPetData })

@@ -50,11 +50,7 @@ router.patch("/:petId", async (req, res) => {
     console.log(req.user.email);
     console.log(req.body);
     req.body.owner = req.user.email;
-    await db
-      .collection(petCollection)
-      .doc(petId)
-      .set(req.body)
-      .arrayUnion(req.body.sharedOwners);
+    await db.collection(petCollection).doc(petId).set(req.body);
 
     res.status(200).json({});
   } catch (error) {

@@ -1,7 +1,8 @@
 import { useRef } from "react";
 import Card from "../ui/Card";
 import classes from "./NewPetForm.module.css";
-// import { useNavigate } from "react-router-dom";
+import PetsIcon from "@mui/icons-material/Pets";
+import { DeletePet } from "../../services/pet-service";
 
 function EditPetForm(props) {
   // let navigate = useNavigate();
@@ -38,6 +39,10 @@ function EditPetForm(props) {
     sharedOwnerInputRef.current.value = "";
   }
 
+  function DeletePetHandler(foreverId) {
+    DeletePet(foreverId);
+  }
+
   return (
     <Card>
       <h1>Edit {oldName}</h1>
@@ -71,6 +76,17 @@ function EditPetForm(props) {
             placeholder="e.g., gmail.@gmail.com"
             ref={sharedOwnerInputRef}
           />
+        </div>
+        <div className={classes.actions}>
+          <button
+            className={classes.button}
+            onClick={() => {
+              DeletePetHandler(foreverId);
+            }}
+          >
+            Delete Pet
+            <PetsIcon />
+          </button>
         </div>
         <div className={classes.actions}>
           <button>Update Pet</button>
