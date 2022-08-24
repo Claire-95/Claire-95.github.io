@@ -51,12 +51,19 @@ router.patch("/:petId", async (req, res) => {
     const sharedOwners = req.body.petData.sharedOwners;
     console.log(sharedOwners);
 
+    const setData = {
+      name: req.body.petData.name,
+      species: req.body.petData.species,
+    };
+
     await db
       .collection(petCollection)
       .doc(petId)
       .update({
         sharedOwners: FieldValue.arrayUnion(sharedOwners),
       });
+
+    await db.collection(petCollection).doc(petId).set(setData);
 
     res.status(200).json({});
   } catch (error) {
