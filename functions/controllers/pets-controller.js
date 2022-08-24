@@ -54,14 +54,16 @@ router.patch("/:petId", async (req, res) => {
     };
 
     console.log(petId);
-    console.log(req.user.email);
+
     console.log(setData);
 
     req.body.owner = req.user.email;
 
-    await db.collection(petCollection).doc(petId);
-
-    console.log(petCollection);
+    await db
+      .collection(petCollection)
+      .doc(petId)
+      .set(setData)
+      .arrayUnion(req.params.sharedOwners);
 
     res.status(200).json({});
   } catch (error) {
