@@ -45,7 +45,7 @@ function GuestGreeting() {
 
 export default function App() {
   // eslint-disable-next-line no-unused-vars
-  const [loggedInValue, setLoggedIn] = useState(loginService.loggedIn);
+  const [loggedInValue, setLoggedIn] = useState(loginService.false);
   loginService.UpdateLoginState(setLoggedIn);
   if (loggedInValue) {
     return <UserGreeting />;
