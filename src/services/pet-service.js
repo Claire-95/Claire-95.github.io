@@ -75,12 +75,9 @@ const SetPet = (props) => {
 const UpdatePet = (props) => {
   var petData = props;
   const petId = petData.id;
-  const newOwner = petData.sharedOwners;
-
-  console.log(newOwner);
 
   restClient()
-    .patch(urlBase.default + "pets/" + petId, { newOwner })
+    .patch(urlBase.default + "pets/" + petId, { petData })
     .then((response) => {
       return response.data;
     })
