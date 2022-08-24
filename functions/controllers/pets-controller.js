@@ -35,7 +35,13 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     req.body.owner = req.user.email;
-    await db.collection(petCollection).doc().set(req.body);
+
+    const setData = {
+      name: req.body.petData.name,
+      species: req.body.petData.species,
+    };
+
+    await db.collection(petCollection).doc().set(setData);
     res.status(200).json({});
   } catch (error) {
     console.log(error);

@@ -51,7 +51,6 @@ function EditPetForm(props) {
           <label htmlFor="name">Name</label>
           <input
             type="text"
-            required
             id="name"
             placeholder={oldName}
             ref={nameInputRef}
@@ -61,7 +60,6 @@ function EditPetForm(props) {
           <label htmlFor="species">Species</label>
           <input
             type="text"
-            required
             id="species"
             placeholder={oldSpecies}
             ref={speciesInputRef}
@@ -71,7 +69,6 @@ function EditPetForm(props) {
           <label htmlFor="sharedOwner">Add a Shared Owner</label>
           <input
             type="text"
-            required
             id="sharedOwner"
             placeholder="e.g., gmail.@gmail.com"
             ref={sharedOwnerInputRef}
