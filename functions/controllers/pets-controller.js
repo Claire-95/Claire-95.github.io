@@ -46,11 +46,22 @@ router.post("/", async (req, res) => {
 router.patch("/:petId", async (req, res) => {
   try {
     const petId = req.params.petId;
+
+    const setData = {
+      id: petId,
+      name: req.params.petId,
+      species: req.params.species,
+    };
+
     console.log(petId);
     console.log(req.user.email);
-    console.log(req.body);
+    console.log(setData);
+
     req.body.owner = req.user.email;
-    await db.collection(petCollection).doc(petId).set(req.body);
+
+    await db.collection(petCollection).doc(petId);
+
+    console.log(petCollection);
 
     res.status(200).json({});
   } catch (error) {
