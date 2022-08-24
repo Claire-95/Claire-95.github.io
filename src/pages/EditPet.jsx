@@ -10,7 +10,7 @@ const EditPet = () => {
       id: updatedPetData.id,
       name: updatedPetData.name,
       species: updatedPetData.species,
-      sharedOwners: [{ newOwner }],
+      sharedOwners: newOwner,
     };
     console.log(newData);
 
