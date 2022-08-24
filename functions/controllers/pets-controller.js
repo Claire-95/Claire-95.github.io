@@ -63,7 +63,7 @@ router.patch("/:petId", async (req, res) => {
         sharedOwners: FieldValue.arrayUnion(sharedOwners),
       });
 
-    await db.collection(petCollection).doc(petId).set(setData);
+    await db.collection(petCollection).doc(petId).update(setData);
 
     res.status(200).json({});
   } catch (error) {

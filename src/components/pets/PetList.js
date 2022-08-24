@@ -23,7 +23,9 @@ function Pet(props) {
         <div>
           <h3>{props.name}</h3>
           <p>{props.species}</p>
+          <p>{props.sharedOwners}</p>
         </div>
+
         <div>
           <a className={classes.button} href={trackerList}>
             View Trackers
@@ -53,6 +55,7 @@ function PetList(props) {
           name={pet.data.petData.name}
           species={pet.data.petData.species}
           owner={pet.data.owner}
+          sharedOwners={pet.data.sharedOwners}
         />
       ))}
     </ul>
