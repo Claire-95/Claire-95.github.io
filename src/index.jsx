@@ -19,6 +19,9 @@ function UserGreeting() {
   var petPath = "pet-page/" + urlId;
   var trackerPath = "add-tracker/" + urlId;
 
+  let editingPet = window.location.pathname.split("/").slice(-4).join("/");
+  console.log(editingPet);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -31,7 +34,7 @@ function UserGreeting() {
           <Route path="all-pets" element={<AllPets />} />
           <Route path={trackerPath} element={<AddTracker />} />
           <Route path="edit-tracker" element={<EditTracker />} />
-          <Route path="edit-pet" element={<EditPet />} />
+          <Route path={editingPet} element={<EditPet />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

@@ -7,6 +7,9 @@ function EditPetForm(props) {
   // let navigate = useNavigate();
   console.log(props);
 
+  let editingPet = window.location.pathname.split("/").slice(-3);
+  console.log(editingPet);
+
   const nameInputRef = useRef();
   const speciesInputRef = useRef();
   const sharedOwnerInputRef = useRef();
