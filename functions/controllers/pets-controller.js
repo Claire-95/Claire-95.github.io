@@ -53,6 +53,10 @@ router.patch("/:petId", async (req, res) => {
       species: req.params.species,
     };
 
+    const newOwner = req.params.sharedOwners;
+
+    console.log(newOwner);
+
     console.log(petId);
 
     console.log(setData);
@@ -63,7 +67,7 @@ router.patch("/:petId", async (req, res) => {
       .collection(petCollection)
       .doc(petId)
       .set(setData)
-      .arrayUnion(req.params.sharedOwners);
+      .arrayUnion(newOwner);
 
     res.status(200).json({});
   } catch (error) {
