@@ -77,12 +77,10 @@ const UpdatePet = (props) => {
   const petId = petData.id;
   const newOwner = petData.sharedOwners;
 
-  console.log(petId);
-  console.log(petData);
   console.log(newOwner);
 
   restClient()
-    .patch(urlBase.default + "pets/" + petId, { petData })
+    .patch(urlBase.default + "pets/" + petId, { newOwner })
     .then((response) => {
       return response.data;
     })

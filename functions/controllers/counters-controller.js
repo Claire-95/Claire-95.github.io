@@ -29,8 +29,6 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    console.log(req.user);
-    console.log(req.user.email);
     req.body.owner = req.user.email;
     await db.collection(counterCollection).doc().set(req.body);
     res.status(200).json({});
@@ -43,10 +41,6 @@ router.post("/", async (req, res) => {
 router.patch("/:counterId", async (req, res) => {
   try {
     const counterId = req.params.counterId;
-    console.log(counterId);
-    console.log(req.user);
-    console.log(req.user.email);
-    console.log(req.body);
     req.body.owner = req.user.email;
     await db.collection(counterCollection).doc(counterId).set(req.body);
     res.status(200).json({});
