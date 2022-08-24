@@ -49,6 +49,8 @@ router.patch("/:petId", async (req, res) => {
     const species = req.body.species;
     const name = req.body.name;
 
+    console.log(species);
+
     const setData = {
       id: petId,
       name: name,
