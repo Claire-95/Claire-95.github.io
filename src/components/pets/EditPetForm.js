@@ -10,6 +10,14 @@ function EditPetForm(props) {
   let editingPet = window.location.pathname.split("/").slice(-3);
   console.log(editingPet);
 
+  const oldName = editingPet[0];
+  const oldSpecies = editingPet[1];
+  const foreverId = editingPet[2];
+
+  console.log(oldName);
+  console.log(oldSpecies);
+  console.log(foreverId);
+
   const nameInputRef = useRef();
   const speciesInputRef = useRef();
   const sharedOwnerInputRef = useRef();
@@ -37,26 +45,40 @@ function EditPetForm(props) {
 
   return (
     <Card>
+      <h1>Edit {oldName}</h1>
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.control}>
           <label htmlFor="name">Name</label>
-          <input type="text" required id="name" ref={nameInputRef} />
+          <input
+            type="text"
+            required
+            id="name"
+            placeholder={oldName}
+            ref={nameInputRef}
+          />
         </div>
         <div className={classes.control}>
           <label htmlFor="species">Species</label>
-          <input type="text" required id="species" ref={speciesInputRef} />
+          <input
+            type="text"
+            required
+            id="species"
+            placeholder={oldSpecies}
+            ref={speciesInputRef}
+          />
         </div>
         <div className={classes.control}>
-          <label htmlFor="sharedOwner">Shared Owner</label>
+          <label htmlFor="sharedOwner">Add a Shared Owner</label>
           <input
             type="text"
             required
             id="sharedOwner"
+            placeholder="e.g., gmail.@gmail.com"
             ref={sharedOwnerInputRef}
           />
         </div>
         <div className={classes.actions}>
-          <button>Add Pet</button>
+          <button>Update Pet</button>
         </div>
       </form>
     </Card>
