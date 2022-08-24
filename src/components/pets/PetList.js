@@ -23,7 +23,7 @@ function Pet(props) {
         <div>
           <h3>{props.name}</h3>
           <p>{props.species}</p>
-          <p>{props.sharedOwners}</p>
+          <p>Shared Users: {props.sharedOwners}</p>
         </div>
 
         <div>

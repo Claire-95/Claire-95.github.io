@@ -75,20 +75,20 @@ function EditPetForm(props) {
           />
         </div>
         <div className={classes.actions}>
-          <button
-            className={classes.button}
-            onClick={() => {
-              DeletePetHandler(foreverId);
-            }}
-          >
-            Delete Pet
-            <PetsIcon />
-          </button>
-        </div>
-        <div className={classes.actions}>
           <button>Update Pet</button>
         </div>
       </form>
+      <div className={classes.actions}>
+        <button
+          className={classes.button}
+          onClick={() => {
+            DeletePetHandler(foreverId);
+          }}
+        >
+          Delete Pet
+          <PetsIcon />
+        </button>
+      </div>
     </Card>
   );
 }

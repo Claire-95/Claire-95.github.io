@@ -34,9 +34,8 @@ router.get("/", async (req, res) => {
 // Post a Pet to database
 router.post("/", async (req, res) => {
   try {
-    req.body.owner = req.user.email;
-
     const setData = {
+      owner: req.user.email,
       name: req.body.petData.name,
       species: req.body.petData.species,
     };
