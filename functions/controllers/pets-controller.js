@@ -29,7 +29,7 @@ router.get("/", async (req, res) => {
 
     const secondPetQuerySnapshot = await db
       .collection(petCollection)
-      .where("owner", "==", req.user.email)
+      .where("sharedOwners", "in", [req.user.email])
       .get();
     const sharedPets = [];
     secondPetQuerySnapshot.forEach((doc) => {
