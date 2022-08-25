@@ -3,6 +3,7 @@ import Card from "../ui/Card";
 import classes from "./NewPetForm.module.css";
 import PetsIcon from "@mui/icons-material/Pets";
 import { DeletePet } from "../../services/pet-service";
+import { useState } from "react";
 
 function EditPetForm(props) {
   // let navigate = useNavigate();
@@ -22,16 +23,17 @@ function EditPetForm(props) {
   function submitHandler(event) {
     event.preventDefault();
 
-    const enteredname = nameInputRef.current.value;
+    const enteredName = nameInputRef.current.value;
     const enteredSpecies = speciesInputRef.current.value;
     const enteredSharedOwner = sharedOwnerInputRef.current.value;
 
     const updatedPetData = {
-      name: enteredname,
+      name: enteredName,
       species: enteredSpecies,
       sharedOwners: enteredSharedOwner,
       id: foreverId,
     };
+
     props.onEditPet(updatedPetData);
 
     nameInputRef.current.value = "";
@@ -39,8 +41,21 @@ function EditPetForm(props) {
     sharedOwnerInputRef.current.value = "";
   }
 
+  const [name, setName] = useState(oldName);
+  const [species, setSpecies] = useState(oldSpecies);
+
   function DeletePetHandler(foreverId) {
     DeletePet(foreverId);
+  }
+
+  function handleNameChange(event) {
+    event.preventDefault();
+    setName(event.target.value);
+  }
+
+  function handleSpeciesChange(event) {
+    event.preventDefault();
+    setSpecies(event.target.value);
   }
 
   return (
@@ -52,7 +67,8 @@ function EditPetForm(props) {
           <input
             type="text"
             id="name"
-            placeholder={oldName}
+            onChange={handleNameChange}
+            value={name}
             ref={nameInputRef}
           />
         </div>
@@ -61,7 +77,8 @@ function EditPetForm(props) {
           <input
             type="text"
             id="species"
-            placeholder={oldSpecies}
+            onChange={handleSpeciesChange}
+            value={species}
             ref={speciesInputRef}
           />
         </div>
@@ -75,7 +92,9 @@ function EditPetForm(props) {
           />
         </div>
         <div className={classes.actions}>
-          <button>Update Pet</button>
+          <button className={classes.button}>
+            Update Pet <PetsIcon />
+          </button>
         </div>
       </form>
       <div className={classes.actions}>

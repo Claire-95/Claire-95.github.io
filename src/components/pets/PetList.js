@@ -52,8 +52,8 @@ function PetList(props) {
         <Pet
           key={pet.id}
           id={pet.id}
-          name={pet.data.petData.name}
-          species={pet.data.petData.species}
+          name={pet.data.name}
+          species={pet.data.species}
           owner={pet.data.owner}
           sharedOwners={pet.data.sharedOwners}
         />
