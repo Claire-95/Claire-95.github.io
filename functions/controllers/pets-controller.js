@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
     }
     const petQuerySnapshot = await db
       .collection(petCollection)
-      .where("owner", "==", req.user.email)
+      .where("sharedOwners", "in", [req.user.email])
       .get();
     const pets = [];
     petQuerySnapshot.forEach((doc) => {
@@ -26,20 +26,6 @@ router.get("/", async (req, res) => {
     });
     res.status(200).json(pets);
     console.log(pets);
-
-    const secondPetQuerySnapshot = await db
-      .collection(petCollection)
-      .where("sharedOwners", "in", [req.user.email])
-      .get();
-    const sharedPets = [];
-    secondPetQuerySnapshot.forEach((doc) => {
-      sharedPets.push({
-        id: doc.id,
-        data: doc.data(),
-      });
-    });
-    res.status(200).json(sharedPets);
-    console.log(sharedPets);
   } catch (error) {
     console.log(error);
     res.status(500).send(error);
