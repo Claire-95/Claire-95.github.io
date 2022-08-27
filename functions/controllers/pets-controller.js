@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
     }
     const petQuerySnapshot = await db
       .collection(petCollection)
-      .where("sharedOwners", "array-contains", [req.user.email])
+      .where("sharedOwners", "array-contains", ["clairelaurie95@gmail.com"])
       .get();
     const pets = [];
     petQuerySnapshot.forEach((doc) => {
