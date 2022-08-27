@@ -39,6 +39,7 @@ router.post("/", async (req, res) => {
       owner: req.user.email,
       name: req.body.petData.name,
       species: req.body.petData.species,
+      sharedOwners: [req.user.email],
     };
 
     await db.collection(petCollection).doc().set(setData);
