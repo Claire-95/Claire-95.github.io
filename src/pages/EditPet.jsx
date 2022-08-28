@@ -3,6 +3,7 @@ import { UpdatePet } from "../services/pet-service";
 
 const EditPet = () => {
   function EditPetHandler(updatedPetData) {
+    console.log(updatedPetData);
     const newOwner = updatedPetData.sharedOwners;
 
     var newData = {

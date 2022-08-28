@@ -24,6 +24,17 @@ router.get("/", async (req, res) => {
         data: doc.data(),
       });
     });
+
+    const secondPetQuerySnapshot = await db
+      .collection(petCollection)
+      .where("owner", "==", req.user.email)
+      .get();
+    secondPetQuerySnapshot.forEach((doc) => {
+      pets.push({
+        id: doc.id,
+        data: doc.data(),
+      });
+    });
     res.status(200).json(pets);
     console.log(pets);
   } catch (error) {
