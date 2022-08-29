@@ -6,16 +6,12 @@ import PetsIcon from "@mui/icons-material/Pets";
 
 function Pet(props) {
   var id = props.id;
-  var pet = props.name + "/" + props.species;
-  console.log(props);
-  console.log(id);
-  console.log(pet);
 
   var trackerList = "/pet-page/" + id;
 
   var addTrackerPage = "/add-tracker/" + id;
 
-  var editPetPage = "/edit-pet/" + pet + "/" + id;
+  var editPetPage = "/edit-pet/" + id;
 
   return (
     <li>

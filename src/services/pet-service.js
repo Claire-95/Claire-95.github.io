@@ -2,6 +2,7 @@ import restClient from "./rest-client-service";
 import { useState, useEffect } from "react";
 import { PetList } from "../components/pets/PetList";
 import { CounterList } from "../components/pets/CounterList";
+import { EditPetForm } from "../components/pets/EditPetForm";
 
 const urlBase = require("../constants");
 const axios = require("axios").default;
@@ -59,6 +60,52 @@ const GetPets = () => {
   }
 };
 
+const GetToEditPet = (foreverId) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadedPets, setLoadedPets] = useState([]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    restClient()
+      .get("pets")
+      .then((response) => {
+        return response.data;
+      })
+      .then((data) => {
+        const pets = [];
+
+        for (const key in data) {
+          const pet = {
+            id: key,
+            ...data[key],
+          };
+
+          pets.push(pet);
+        }
+
+        setIsLoading(false);
+        setLoadedPets(pets);
+      });
+  }, []);
+
+  if (isLoading) {
+    return (
+      <section>
+        <p>Loading...</p>
+      </section>
+    );
+  }
+
+  for (var i = 0; i < loadedPets.length; i++) {
+    if (loadedPets[i].id === foreverId) {
+      var currentPet = loadedPets[i];
+    }
+  }
+
+  console.log(currentPet);
+  return <EditPetForm currentPet={currentPet} />;
+};
+
 const SetPet = (props) => {
   var petData = props;
   console.log(petData);
@@ -94,4 +141,4 @@ const DeletePet = (petId) => {
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export { GetPets, SetPet, DeletePet, UpdatePet };
+export { GetPets, SetPet, DeletePet, UpdatePet, GetToEditPet };

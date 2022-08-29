@@ -2,19 +2,21 @@ import { useRef } from "react";
 import Card from "../ui/Card";
 import classes from "./NewPetForm.module.css";
 import PetsIcon from "@mui/icons-material/Pets";
-import { DeletePet } from "../../services/pet-service";
+import { DeletePet, UpdatePet } from "../../services/pet-service";
 import { useState } from "react";
 
 function EditPetForm(props) {
-  // let navigate = useNavigate();
-  console.log(props);
+  const foreverId = props.currentPet.id;
+  const oldName = props.currentPet.data.name;
+  const oldSpecies = props.currentPet.data.species;
+  const oldSharedOwners = props.currentPet.data.sharedOwners;
+  const oldOwner = props.currentPet.data.owner;
 
-  let editingPet = window.location.pathname.split("/").slice(-3);
-  console.log(editingPet);
+  console.log(oldSharedOwners);
 
-  const oldName = editingPet[0];
-  const oldSpecies = editingPet[1];
-  const foreverId = editingPet[2];
+  const [name, setName] = useState(oldName);
+  const [species, setSpecies] = useState(oldSpecies);
+  const [sharedOwner, setSharedOwner] = useState("example@email.com");
 
   const nameInputRef = useRef();
   const speciesInputRef = useRef();
@@ -23,26 +25,24 @@ function EditPetForm(props) {
   function submitHandler(event) {
     event.preventDefault();
 
-    const enteredName = nameInputRef.current.value;
-    const enteredSpecies = speciesInputRef.current.value;
-    const enteredSharedOwner = sharedOwnerInputRef.current.value;
+    console.log(foreverId);
+    console.log(name);
+    console.log(species);
+    console.log(sharedOwner);
 
     const updatedPetData = {
-      name: enteredName,
-      species: enteredSpecies,
-      sharedOwners: enteredSharedOwner,
       id: foreverId,
+      name: name,
+      species: species,
+      sharedOwners: sharedOwner,
     };
 
-    props.onEditPet(updatedPetData);
+    UpdatePet(updatedPetData);
 
-    nameInputRef.current.value = "";
-    speciesInputRef.current.value = "";
+    nameInputRef.current.value = name;
+    speciesInputRef.current.value = species;
     sharedOwnerInputRef.current.value = "";
   }
-
-  const [name, setName] = useState(oldName);
-  const [species, setSpecies] = useState(oldSpecies);
 
   function DeletePetHandler(foreverId) {
     DeletePet(foreverId);
@@ -58,9 +58,29 @@ function EditPetForm(props) {
     setSpecies(event.target.value);
   }
 
+  function handleSharedOwnerChange(event) {
+    event.preventDefault();
+    setSharedOwner(event.target.value);
+    console.log(sharedOwner);
+  }
+
+  function SharedOwnerList() {
+    const sharedOwnerList = oldSharedOwners;
+    const listItems = sharedOwnerList.map((owner) => <ul>{owner}</ul>);
+    return (
+      <div className={classes.ownerList}>
+        <h3>Shared Owners</h3>
+        <ul>{listItems}</ul>
+      </div>
+    );
+  }
+
   return (
     <Card>
-      <h1>Edit {oldName}</h1>
+      <h1>
+        Edit {name} the {species}
+      </h1>
+      <h3>Pet owner: {oldOwner}</h3>
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.control}>
           <label htmlFor="name">Name</label>
@@ -87,6 +107,7 @@ function EditPetForm(props) {
           <input
             type="text"
             id="sharedOwner"
+            onChange={handleSharedOwnerChange}
             placeholder="e.g., gmail.@gmail.com"
             ref={sharedOwnerInputRef}
           />
@@ -97,6 +118,9 @@ function EditPetForm(props) {
           </button>
         </div>
       </form>
+
+      <SharedOwnerList />
+
       <div className={classes.actions}>
         <button
           className={classes.button}
@@ -112,4 +136,4 @@ function EditPetForm(props) {
   );
 }
 
-export default EditPetForm;
+export { EditPetForm };

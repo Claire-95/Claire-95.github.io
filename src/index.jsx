@@ -18,9 +18,7 @@ function UserGreeting() {
   const urlId = window.location.pathname.split("/").pop();
   var petPath = "pet-page/" + urlId;
   var trackerPath = "add-tracker/" + urlId;
-
-  let editingPet = window.location.pathname.split("/").slice(-4).join("/");
-  console.log(editingPet);
+  var editingPet = "edit-pet/" + urlId;
 
   return (
     <BrowserRouter>
