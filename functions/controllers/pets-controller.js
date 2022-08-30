@@ -2,7 +2,6 @@
 /* eslint new-cap: ["error", { "capIsNewExceptions": ["Router"] }] */
 const db = require("../services/database-service");
 const express = require("express");
-
 // eslint-disable-next-line object-curly-spacing
 const router = express.Router();
 const petCollection = "pets";
@@ -14,7 +13,6 @@ router.get("/", async (req, res) => {
     if (!req.user.loggedIn) {
       res.status(401).send({});
     }
-
     const petQuerySnapshot = await db
       .collection(petCollection)
       .where("sharedOwners", "array-contains", req.user.email)
