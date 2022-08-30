@@ -4,6 +4,8 @@ import classes from "./NewPetForm.module.css";
 import PetsIcon from "@mui/icons-material/Pets";
 import { DeletePet, UpdatePet } from "../../services/pet-service";
 import { useState } from "react";
+// import { onSnapshot } from "firebase/firestore";
+// import petCollectionRef from "../../services/db-service";
 
 function EditPetForm(props) {
   const foreverId = props.currentPet.id;
