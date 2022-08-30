@@ -65,14 +65,7 @@ function EditPetForm(props) {
   }
 
   function SharedOwnerList() {
-    const sharedOwnerList = oldSharedOwners;
-    const listItems = sharedOwnerList.map((owner) => <ul>{owner}</ul>);
-    return (
-      <div className={classes.ownerList}>
-        <h3>Shared Owners</h3>
-        <ul>{listItems}</ul>
-      </div>
-    );
+    return <p>pets</p>;
   }
 
   return (
