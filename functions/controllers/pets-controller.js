@@ -14,12 +14,12 @@ router.get("/", async (req, res) => {
     if (!req.user.loggedIn) {
       res.status(401).send({});
     }
-    const petQuerySnapshot = await db
+    const snapshot = await db
       .collection(petCollection)
       .where("sharedOwners", "array-contains", req.user.email)
-      .get();
+      .onSnapshot(snapshot);
     const pets = [];
-    petQuerySnapshot.forEach((doc) => {
+    snapshot.forEach((doc) => {
       pets.push({
         id: doc.id,
         data: doc.data(),
