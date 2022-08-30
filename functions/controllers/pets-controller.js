@@ -56,14 +56,6 @@ router.post("/", async (req, res) => {
 
     await db.collection(petCollection).doc().set(setData);
     res.status(200).json({});
-
-    await db
-      .collection(petCollection)
-      .doc()
-      .onSnapshot((querySnapshot) => {
-        console.log(`Received query snapshot of size ${querySnapshot.size}`);
-      });
-    res.status(200).json({});
   } catch (error) {
     console.log(error);
     res.status(500).send(error);
