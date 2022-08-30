@@ -18,8 +18,6 @@ function Pet(props) {
       <Card>
         <div>
           <h3>{props.name}</h3>
-          <p>{props.species}</p>
-          <p>Shared Users: {props.sharedOwners}</p>
         </div>
 
         <div>
