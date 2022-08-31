@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const admin = require("firebase-admin");
 const functions = require("firebase-functions");
 const cors = require("cors");
-const db = require("../services/database-service");
+const db = require("services/database-service");
 
 // eslint-disable-next-line max-len
 const authenticationMiddleware = require("./middleware/authentication-middleware");
