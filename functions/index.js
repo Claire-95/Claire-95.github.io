@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const admin = require("firebase-admin");
 const functions = require("firebase-functions");
 const cors = require("cors");
-const db = require("./services/database-service");
+// const db = require("./services/database-service");
 
 // eslint-disable-next-line max-len
 const authenticationMiddleware = require("./middleware/authentication-middleware");
@@ -32,8 +32,8 @@ exports.webApi = functions.https.onRequest(main);
 exports.scheduledFunction = functions.pubsub
   .schedule("every 5 minutes")
   .onRun((context) => {
-    const counterRef = db.collection("counters").doc();
-    counterRef.update({ value: 0 });
+    // const counterRef = db.collection("counters").doc();
+    // counterRef.update({ value: 0 });
 
     console.log("Counter updated!");
     return null;
