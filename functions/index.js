@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint-disable object-curly-spacing */
 
 const express = require("express");
@@ -27,3 +28,10 @@ main.use("/counters", countersController);
 
 // define google cloud function name
 exports.webApi = functions.https.onRequest(main);
+
+exports.scheduledFunction = functions.pubsub
+  .schedule("every 5 minutes")
+  .onRun((context) => {
+    console.log("This will be run every 5 minutes!");
+    return null;
+  });

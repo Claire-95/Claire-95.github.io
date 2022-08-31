@@ -4,6 +4,8 @@ import classes from "./NewPetForm.module.css";
 import PetsIcon from "@mui/icons-material/Pets";
 import { DeletePet, UpdatePet } from "../../services/pet-service";
 import { useState } from "react";
+// import { onSnapshot } from "firebase/firestore";
+// import { petCollectionRef } from "../../services/db-service";
 
 function EditPetForm(props) {
   const foreverId = props.currentPet.id;
@@ -16,7 +18,7 @@ function EditPetForm(props) {
 
   const [name, setName] = useState(oldName);
   const [species, setSpecies] = useState(oldSpecies);
-  const [sharedOwner, setSharedOwner] = useState("example@email.com");
+  const [sharedOwner, setSharedOwner] = useState(oldSharedOwners[0]);
 
   const nameInputRef = useRef();
   const speciesInputRef = useRef();
