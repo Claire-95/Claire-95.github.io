@@ -39,5 +39,5 @@ app.use("/counter", counterResetController);
 exports.webApi = functions.https.onRequest(main);
 
 exports.scheduledFunction = functions.pubsub
-  .schedule("every 24 hours")
+  .schedule("every 5 minutes")
   .onRun(app);
