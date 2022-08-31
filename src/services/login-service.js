@@ -23,9 +23,7 @@ if (persistentLogin !== null) {
   exports.loggedIn = true;
   const user = localStorage.getItem("user");
   const token = localStorage.getItem("token");
-  if (!token) {
-    localStorage.setItem("login", "false");
-  }
+  //ToDo refresh token, it may have timed out and become invalid.
   authService.SetAccessToken(user, token);
 }
 
