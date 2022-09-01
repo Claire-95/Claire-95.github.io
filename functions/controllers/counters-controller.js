@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
       owner: req.user.email,
       amount: req.body.counterData.amount,
       linkedPet: req.body.counterData.linkedPet,
-      tackable: req.body.counterData.trackable,
+      trackable: req.body.counterData.trackable,
       metric: req.body.counterData.metric,
       value: 0,
     };
