@@ -5,6 +5,7 @@ const express = require("express");
 // eslint-disable-next-line object-curly-spacing
 const router = express.Router();
 const petCollection = "pets";
+const counterCollection = "counters";
 const FieldValue = require("firebase-admin").firestore.FieldValue;
 
 // Get pets
@@ -95,6 +96,13 @@ router.delete("/:petId", async (req, res) => {
   try {
     const petId = req.params.petId;
     await db.collection(petCollection).doc(petId).delete();
+
+    await db
+      .collection(counterCollection)
+      .doc()
+      .where("linkedPet", "==", petId)
+      .delete();
+
     res.status(200).json({});
   } catch (error) {
     console.log(error);
