@@ -38,6 +38,7 @@ function DecrementTrackerHandler(counterData) {
     metric: counterData.metric,
     trackable: counterData.trackable,
     value: value,
+    owner: counterData.owner,
   };
   console.log(newData);
   UpdateCounter(newData);
@@ -90,11 +91,11 @@ function CounterList(props) {
         <CurrentPet
           key={count.id}
           id={count.id}
-          linkedPet={count.data.counterData.linkedPet}
-          value={count.data.counterData.value}
-          amount={count.data.counterData.amount}
-          metric={count.data.counterData.metric}
-          trackable={count.data.counterData.trackable}
+          linkedPet={count.data.linkedPet}
+          value={count.data.value}
+          amount={count.data.amount}
+          metric={count.data.metric}
+          trackable={count.data.trackable}
         />
       ))}
     </ul>

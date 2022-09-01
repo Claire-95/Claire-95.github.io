@@ -45,13 +45,13 @@ const GetCounters = () => {
   const counters = [];
   console.log(loadedCounters);
 
-  console.log(loadedCounters[0].data.counterData.linkedPet);
+  console.log(loadedCounters[0].data.linkedPet);
 
   for (var i = 0; i < loadedCounters.length; i++) {
-    if (loadedCounters[i].data.counterData.linkedPet === urlId) {
+    if (loadedCounters[i].data.linkedPet === urlId) {
       counters.push(loadedCounters[i]);
       console.log(counters[0]);
-      console.log(counters[0].data.counterData.metric);
+      console.log(counters[0].data.metric);
       console.log(counters);
     }
   }
