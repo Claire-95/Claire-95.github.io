@@ -8,7 +8,9 @@ const counterCollection = "counters";
 const counterResetController = async () => {
   try {
     console.log("Made it to controller");
-    const counterRef = db.collection(counterCollection).doc();
+    const counterRef = db
+      .collection(counterCollection)
+      .doc("pLwYAsK7VLhMB7CHdImt");
     const res = await counterRef.update({ owner: "dog@gmail" });
     res.status(200).json({});
   } catch (error) {
