@@ -33,6 +33,6 @@ exports.webApi = functions.https.onRequest(main);
 exports.scheduledFunction = functions.pubsub
   .schedule("every 5 minutes")
   .onRun((context) => {
-    counterResetController.patch();
+    counterResetController();
     return null;
   });
