@@ -7,12 +7,15 @@ const counterCollection = "counters";
 
 const counterResetController = async () => {
   try {
-    console.log("Made it to controller");
-    const counterRef = db
-      .collection(counterCollection)
-      .doc("pLwYAsK7VLhMB7CHdImt");
-    const res = await counterRef.update({ owner: "dog@gmail" });
-    res.status(200).json({});
+    const counterQuerySnapshot = await db.collection(counterCollection).get();
+
+    counterQuerySnapshot.forEach((doc) => {
+      {
+        db.collection(counterCollection)
+          .doc(doc.id)
+          .update({ owner: "dog@gmail" });
+      }
+    });
   } catch (error) {
     console.log(error);
   }
