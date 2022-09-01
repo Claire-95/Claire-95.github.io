@@ -31,7 +31,8 @@ main.use("/counters", countersController);
 exports.webApi = functions.https.onRequest(main);
 
 exports.scheduledFunction = functions.pubsub
-  .schedule("every 5 minutes")
+  .schedule("* 17 * * *")
+  .timeZone("Europe/London")
   .onRun((context) => {
     counterResetController();
     return null;
