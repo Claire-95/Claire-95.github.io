@@ -11,9 +11,7 @@ const counterResetController = async () => {
 
     counterQuerySnapshot.forEach((doc) => {
       {
-        db.collection(counterCollection)
-          .doc(doc.id)
-          .update({ owner: "dog@gmail" });
+        db.collection(counterCollection).doc(doc.id).update({ value: 0 });
       }
     });
   } catch (error) {
