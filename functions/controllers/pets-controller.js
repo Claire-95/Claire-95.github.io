@@ -53,7 +53,7 @@ router.post("/", async (req, res) => {
       sharedOwners: [],
     };
 
-    await db.collection(petCollection).doc().set(setData.body);
+    await db.collection(petCollection).doc().set(setData);
     res.status(200).json({});
   } catch (error) {
     console.log(error);

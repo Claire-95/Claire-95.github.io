@@ -29,8 +29,15 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    req.body.owner = req.user.email;
-    await db.collection(counterCollection).doc().set(req.body);
+    const counterData = {
+      owner: req.user.email,
+      amount: req.body.amount,
+      linkedPet: req.body.linkedPet,
+      tackable: req.body.trackable,
+      metric: req.body.metric,
+      value: 0,
+    };
+    await db.collection(counterCollection).doc().set(counterData);
     res.status(200).json({});
   } catch (error) {
     console.log(error);
