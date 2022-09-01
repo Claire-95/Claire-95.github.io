@@ -29,8 +29,6 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    console.log(req.body.counterData.amount);
-
     const counterData = {
       owner: req.user.email,
       amount: req.body.counterData.amount,
@@ -50,8 +48,15 @@ router.post("/", async (req, res) => {
 router.patch("/:counterId", async (req, res) => {
   try {
     const counterId = req.params.counterId;
-    req.body.owner = req.user.email;
-    await db.collection(counterCollection).doc(counterId).set(req.body);
+    const counterData = {
+      owner: req.user.email,
+      amount: req.body.counterData.amount,
+      linkedPet: req.body.counterData.linkedPet,
+      tackable: req.body.counterData.trackable,
+      metric: req.body.counterData.metric,
+      value: req.body.counterData.value,
+    };
+    await db.collection(counterCollection).doc(counterId).set(counterData);
     res.status(200).json({});
   } catch (error) {
     console.log(error);
