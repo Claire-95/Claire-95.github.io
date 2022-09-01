@@ -29,6 +29,10 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
+    console.log(req.body.amount);
+    console.log(req.body.data.amount);
+    console.log(req.amount);
+
     const counterData = {
       owner: req.user.email,
       amount: req.body.amount,
