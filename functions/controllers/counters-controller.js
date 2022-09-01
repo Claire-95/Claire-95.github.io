@@ -29,16 +29,14 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    console.log(req.body.amount);
-    console.log(req.body.data.amount);
-    console.log(req.amount);
+    console.log(req.body.counterData.amount);
 
     const counterData = {
       owner: req.user.email,
-      amount: req.body.amount,
-      linkedPet: req.body.linkedPet,
-      tackable: req.body.trackable,
-      metric: req.body.metric,
+      amount: req.body.counterData.amount,
+      linkedPet: req.body.counterData.linkedPet,
+      tackable: req.body.counterData.trackable,
+      metric: req.body.counterData.metric,
       value: 0,
     };
     await db.collection(counterCollection).doc().set(counterData);
