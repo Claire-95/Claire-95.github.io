@@ -101,7 +101,10 @@ router.delete("/:petId", async (req, res) => {
     await db
       .collection(counterCollection)
       .where("linkedPet", "==", petId)
-      .delete();
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.docs[0].ref.delete();
+      });
 
     res.status(200).json({});
   } catch (error) {
