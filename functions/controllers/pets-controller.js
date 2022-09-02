@@ -95,8 +95,8 @@ router.patch("/:petId", async (req, res) => {
 router.delete("/:petId", async (req, res) => {
   try {
     const petId = req.params.petId;
+
     await db.collection(petCollection).doc(petId).delete();
-    res.status(200).json({});
 
     await db
       .collection(counterCollection)
