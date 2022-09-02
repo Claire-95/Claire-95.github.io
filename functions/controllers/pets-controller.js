@@ -91,7 +91,7 @@ router.patch("/:petId", async (req, res) => {
   }
 });
 
-// Delete pet
+// Delete pet and tracker
 router.delete("/:petId", async (req, res) => {
   try {
     const petId = req.params.petId;
@@ -100,7 +100,6 @@ router.delete("/:petId", async (req, res) => {
 
     await db
       .collection(counterCollection)
-      .doc()
       .where("linkedPet", "==", petId)
       .delete();
 
