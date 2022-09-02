@@ -63,7 +63,6 @@ function EditPetForm(props) {
   function handleSharedOwnerChange(event) {
     event.preventDefault();
     setSharedOwner(event.target.value);
-    console.log(sharedOwner);
   }
 
   function SharedOwnerList() {
