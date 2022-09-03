@@ -18,7 +18,7 @@ const NavBar = () => {
   return (
     <div>
       <header>
-        <h3>Planimals</h3>
+        <h2>Planimals</h2>
         <nav className={classState}>
           <a href="/all-pets">All Pets</a>
           <a href="/new-pet">Add New Pet</a>

@@ -2,7 +2,7 @@ import classes from "./CounterList.module.css";
 import Card from "../ui/Card";
 import { DeleteCounter } from "../../services/counter-service";
 import { UpdateCounter } from "../../services/counter-service";
-// import PetsIcon from "@mui/icons-material/Pets";
+import PetsIcon from "@mui/icons-material/Pets";
 
 //Produces content for pet cards
 
@@ -85,20 +85,28 @@ function CurrentPet(props) {
 }
 
 function CounterList(props) {
+  var petId = "/add-tracker/" + window.location.pathname.split("/").pop();
   return (
-    <ul className={classes.list}>
-      {props.counters.map((count) => (
-        <CurrentPet
-          key={count.id}
-          id={count.id}
-          linkedPet={count.data.linkedPet}
-          value={count.data.value}
-          amount={count.data.amount}
-          metric={count.data.metric}
-          trackable={count.data.trackable}
-        />
-      ))}
-    </ul>
+    <>
+      <ul className={classes.list}>
+        {props.counters.map((count) => (
+          <CurrentPet
+            key={count.id}
+            id={count.id}
+            linkedPet={count.data.linkedPet}
+            value={count.data.value}
+            amount={count.data.amount}
+            metric={count.data.metric}
+            trackable={count.data.trackable}
+          />
+        ))}
+
+        <a className={classes.button} href={petId}>
+          Add Tracker +
+          <PetsIcon />
+        </a>
+      </ul>
+    </>
   );
 }
 

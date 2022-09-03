@@ -1,8 +1,8 @@
-import Button from "@mui/material/Button";
 import PetsIcon from "@mui/icons-material/Pets";
 import firebase from "../Firebase/firebase";
 import loginService from "../services/login-service";
-import "../index.css";
+import "../components/styles/SignIn.css";
+import Card from "../components/ui/Card";
 
 const SignIn = (props) => {
   const signInWithFirebase = () => {
@@ -31,18 +31,31 @@ const SignIn = (props) => {
   };
 
   return (
-    <div>
-      <h1>Welcome to Planimals!</h1>
-      <h2>Please sign in to begin</h2>
-      <Button
-        variant="contained"
-        onClick={() => {
-          signInWithFirebase();
-        }}
-      >
-        Sign In With Google <PetsIcon />
-      </Button>
-    </div>
+    <Card>
+      <div>
+        <h1>Welcome to Planimals!</h1>
+        <h2 className="desc">
+          Planimals is a customisable app designed to help you with all of your
+          pet care needs.
+        </h2>
+        <h2 className="desc">With Planimals you can:</h2>
+        <div className="list">
+          <li>Create multiple pets per account</li>
+          <br></br>
+          <li>Create multiple Trackers per pet (e.g., 3 walks a day)</li>
+          <br></br>
+          <li>Share pets and trackers with other users</li>
+        </div>
+        <button
+          className="button"
+          onClick={() => {
+            signInWithFirebase();
+          }}
+        >
+          Sign In With Google <PetsIcon />
+        </button>
+      </div>
+    </Card>
   );
 };
 
