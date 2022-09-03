@@ -49,7 +49,7 @@ function CurrentPet(props) {
     <li>
       <Card>
         <div>
-          <h1>{props.name}</h1>
+          <h2>{props.name}</h2>
           <h3>{props.trackable}</h3>
           <p>
             {props.value} of {props.amount} {props.metric} complete!

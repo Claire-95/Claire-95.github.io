@@ -9,7 +9,6 @@ const AddNewPet = () => {
 
   return (
     <section>
-      <h1>Add New Pet</h1>
       <NewPetForm onAddPet={AddPetHandler} />
     </section>
   );

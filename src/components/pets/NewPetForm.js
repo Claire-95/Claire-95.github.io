@@ -33,6 +33,7 @@ function NewPetForm(props) {
     <Card>
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.control}>
+          <h1>Add New Pet</h1>
           <label htmlFor="name">Name</label>
           <input type="text" required id="name" ref={nameInputRef} />
         </div>

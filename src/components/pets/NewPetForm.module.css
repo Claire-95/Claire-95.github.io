@@ -5,12 +5,22 @@
   --textColour: white;
 }
 
+h1 {
+  font-size: 25px;
+  padding: 20px;
+}
+
 .form {
   padding: 1rem;
 }
 
 .control {
   margin-bottom: 0.5rem;
+}
+
+label {
+  font-size: 20px;
+  color: var(--mainColour);
 }
 
 .ownerList {

@@ -36,16 +36,25 @@ function NewTrackerForm(props) {
     <Card>
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.control}>
-          <label htmlFor="trackable">
-            What would you like to track? (e.g., food)
-          </label>
-          <input type="text" required id="trackable" ref={trackableInputRef} />
+          <h1>Add a New Tracker </h1>
+          <label htmlFor="trackable">What would you like to track?</label>
+          <input
+            type="text"
+            required
+            id="trackable"
+            placeholder="e.g., food"
+            ref={trackableInputRef}
+          />
         </div>
         <div className={classes.control}>
-          <label htmlFor="metric">
-            What metric would you like to use? (e.g., tins)
-          </label>
-          <input type="text" required id="metric" ref={metricInputRef} />
+          <label htmlFor="metric">What metric would you like to use?</label>
+          <input
+            type="text"
+            required
+            id="metric"
+            placeholder="e.g., tins"
+            ref={metricInputRef}
+          />
         </div>
         <div className={classes.control}>
           <label htmlFor="amount">

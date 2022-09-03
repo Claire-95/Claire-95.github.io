@@ -64,6 +64,8 @@ button.navBtn {
     background-color: var(--mainColour);
     transition: 1s;
     transform: none;
+    position: absolute;
+    z-index: 1;
   }
 
   nav.closed {

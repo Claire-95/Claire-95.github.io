@@ -9,7 +9,6 @@ const AddNewCounter = () => {
 
   return (
     <section>
-      <h1>Add New Tracker</h1>
       <NewTrackerForm onAddCounter={AddCounterHandler} />
     </section>
   );

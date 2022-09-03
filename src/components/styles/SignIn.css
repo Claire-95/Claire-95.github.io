@@ -22,28 +22,98 @@
   box-shadow: 3px 3px #999;
 }
 
-.button:hover {
-  background-color: var(--thirdColour);
-  border-color: var(--mainColour);
-}
-
-.button:active {
-  background-color: var(--mainColour);
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-
-h3 {
-  color: var(--mainColour);
-  padding: 20px;
-}
-
 .desc {
   color: var(--mainColour);
   padding: 20px;
 }
 
+.bigDesc {
+  color: var(--mainColour);
+  padding: 20px;
+  font-size: 30px;
+}
+
 .list {
   color: var(--mainColour);
   padding: 20px;
+}
+
+.bone {
+  margin: 20px;
+  position: relative;
+  width: 150px;
+  height: 60px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  color: var(--mainColour);
+  text-align: center;
+  font-size: 20px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.bone:hover .bone:active {
+  margin: 20px;
+  position: relative;
+  width: 150px;
+  height: 60px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  color: var(--thirdColour);
+  text-align: center;
+  font-size: 20px;
+  padding: 8px;
+  cursor: pointer;
+}
+.c1,
+.c2,
+.c3,
+.c4 {
+  background: #fff;
+  height: 30px;
+  width: 30px;
+  border: 1px solid var(--mainColour);
+  border-radius: 50%;
+  position: absolute;
+}
+.c1 {
+  left: 0;
+  top: 0;
+}
+.c2 {
+  right: 0;
+  top: 0;
+}
+.c3 {
+  left: 0;
+  bottom: 0;
+}
+.c4 {
+  bottom: 0;
+  right: 0;
+}
+.b1 {
+  background: #fff;
+  height: 30px;
+  width: 120px;
+  position: absolute;
+  left: 15px;
+  top: 15px;
+}
+.b2 {
+  position: absolute;
+  left: 15px;
+  top: 0;
+  width: 90px;
+  height: 30px;
+  line-height: 30px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  text-align: center;
 }
