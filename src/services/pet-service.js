@@ -122,8 +122,6 @@ const SetPet = (props) => {
 const UpdatePet = (props) => {
   var petData = props;
   const petId = petData.id;
-  console.log(petData.id);
-  console.log(petData.data.amount);
 
   restClient()
     .patch(urlBase.default + "pets/" + petId, { petData })

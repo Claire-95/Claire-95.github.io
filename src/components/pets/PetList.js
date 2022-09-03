@@ -17,7 +17,7 @@ function Pet(props) {
     <li>
       <Card>
         <div>
-          <h3>{props.name}</h3>
+          <h1>{props.name}</h1>
         </div>
 
         <div>

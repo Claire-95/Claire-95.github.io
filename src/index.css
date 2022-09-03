@@ -1,25 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
-:root {
-  --salmon: #ff8682;
-  --purple: #dc73ff;
-  --lightPink: #f7daf0;
-  --orange: #ffa582;
-  --darkPink: #ff82b8;
-  --writing: #731429;
+html * {
+  font-family: "Roboto", sans-serif;
 }
 
 body {
-  background-color: #fcf3f6;
+  background-color: #b0e59f;
   text-align: center;
 }
 
 h1 {
   font-size: 2.5rem;
-  color: #2c292b;
-}
-
-h2 {
-  font-size: 1.5rem;
-  color: #2c292b;
+  color: #1b8a24;
 }

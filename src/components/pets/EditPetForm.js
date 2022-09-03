@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Card from "../ui/Card";
 import classes from "./NewPetForm.module.css";
 import PetsIcon from "@mui/icons-material/Pets";
@@ -18,7 +18,7 @@ function EditPetForm(props) {
 
   const [name, setName] = useState(oldName);
   const [species, setSpecies] = useState(oldSpecies);
-  const [sharedOwner, setSharedOwner] = useState(oldSharedOwners[0]);
+  const [sharedOwners, setSharedOwners] = useState(oldSharedOwners[0]);
 
   const nameInputRef = useRef();
   const speciesInputRef = useRef();
@@ -30,13 +30,13 @@ function EditPetForm(props) {
     console.log(foreverId);
     console.log(name);
     console.log(species);
-    console.log(sharedOwner);
+    console.log(sharedOwners);
 
     const updatedPetData = {
       id: foreverId,
       name: name,
       species: species,
-      sharedOwners: sharedOwner,
+      sharedOwners: sharedOwners,
     };
 
     UpdatePet(updatedPetData);
@@ -62,18 +62,43 @@ function EditPetForm(props) {
 
   function handleSharedOwnerChange(event) {
     event.preventDefault();
-    setSharedOwner(event.target.value);
+    setSharedOwners(event.target.value);
   }
 
   function SharedOwnerList() {
     const sharedOwnerList = oldSharedOwners;
-    const listItems = sharedOwnerList.map((owner) => <ul>{owner}</ul>);
+    const listItems = sharedOwnerList.map((owner) => (
+      <ul key={owner}>{owner}</ul>
+    ));
     return (
       <div className={classes.ownerList}>
         <h3>Shared Owners</h3>
         <ul>{listItems}</ul>
       </div>
     );
+
+    // useEffect(() => {
+    //   const unsubscribe = onSnapshot(petCollectionRef, (snapshot) => {
+    //     setSharedOwners(
+    //       snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
+    //     );
+    //   });
+    //   return () => {
+    //     unsubscribe();
+    //   };
+    // }, []);
+    // return (
+    //   <div>
+    //     <h1>Shared Owners</h1>
+    //     <ul>
+    //       {sharedOwners.map((owner) => (
+    //         <li key={owner}>
+    //           <button onClick={() => console.log("delete owner")}></button>
+    //         </li>
+    //       ))}
+    //     </ul>
+    //   </div>
+    // );
   }
 
   return (
