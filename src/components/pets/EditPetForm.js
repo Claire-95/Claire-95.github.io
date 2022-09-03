@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import Card from "../ui/Card";
 import classes from "./NewPetForm.module.css";
 import PetsIcon from "@mui/icons-material/Pets";
