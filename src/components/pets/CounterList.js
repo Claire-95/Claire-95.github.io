@@ -2,7 +2,6 @@ import classes from "./CounterList.module.css";
 import Card from "../ui/Card";
 import { DeleteCounter } from "../../services/counter-service";
 import { UpdateCounter } from "../../services/counter-service";
-import PetsIcon from "@mui/icons-material/Pets";
 
 //Produces content for pet cards
 

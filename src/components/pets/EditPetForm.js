@@ -3,7 +3,7 @@ import Card from "../ui/Card";
 import classes from "./NewPetForm.module.css";
 import { DeletePet, UpdatePet } from "../../services/pet-service";
 import { useState } from "react";
-// import { doc, onSnapshot } from "firebase/firestore";
+import { doc, onSnapshot } from "firebase/firestore";
 // import db from "../../services/db-service";
 
 function EditPetForm(props) {
@@ -67,7 +67,9 @@ function EditPetForm(props) {
   function SharedOwnerList() {
     const sharedOwnerList = oldSharedOwners;
     const listItems = sharedOwnerList.map((owner) => (
-      <ul key={owner}>{owner}</ul>
+      <ul className={classes.control} key={owner}>
+        {owner}
+      </ul>
     ));
     return (
       <div className={classes.ownerList}>
