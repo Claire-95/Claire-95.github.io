@@ -9,6 +9,7 @@
 
 .name {
   color: var(--darkOrange);
+  font-size: 25px;
 }
 
 .button {

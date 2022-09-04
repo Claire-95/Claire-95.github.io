@@ -102,7 +102,6 @@ function CounterList(props) {
 
         <a className={classes.button} href={petId}>
           Add Tracker +
-          <PetsIcon />
         </a>
       </ul>
     </>
