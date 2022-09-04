@@ -4,8 +4,7 @@ import classes from "./NewPetForm.module.css";
 import PetsIcon from "@mui/icons-material/Pets";
 import { DeletePet, UpdatePet } from "../../services/pet-service";
 import { useState } from "react";
-// import { onSnapshot } from "firebase/firestore";
-// import { petCollectionRef } from "../../services/db-service";
+// import { doc, onSnapshot } from "firebase/firestore";
 
 function EditPetForm(props) {
   const foreverId = props.currentPet.id;
@@ -104,7 +103,9 @@ function EditPetForm(props) {
   return (
     <Card>
       <h1>
+        <PetsIcon />
         Edit {name} the {species}
+        <PetsIcon />
       </h1>
       <h3>Pet owner: {oldOwner}</h3>
       <form className={classes.form} onSubmit={submitHandler}>
@@ -139,9 +140,7 @@ function EditPetForm(props) {
           />
         </div>
         <div className={classes.actions}>
-          <button className={classes.button}>
-            Update Pet <PetsIcon />
-          </button>
+          <button className={classes.button}>Update Pet</button>
         </div>
       </form>
 
@@ -155,7 +154,6 @@ function EditPetForm(props) {
           }}
         >
           Delete Pet
-          <PetsIcon />
         </button>
       </div>
     </Card>

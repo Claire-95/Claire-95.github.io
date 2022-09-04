@@ -1,33 +1,45 @@
 :root {
-  --mainColour: #46a444;
-  --secondColour: #75b333;
-  --thirdColour: #71bd64;
-  --textColour: white;
+  --violet: #718dba;
+  --brown: #bc6c25;
+  --yellow: #e9c46a;
+  --lightOrange: #f4a261;
+  --darkOrange: #c35003;
+  --light: #f9eae1;
 }
 
 .button {
   display: inline-block;
   border-radius: 4px;
-  background-color: var(--mainColour);
+  background-color: var(--lightOrange);
   border: none;
-  color: #ffffff;
+  color: var(--light);
   text-align: center;
-  font-size: 10px;
+  font-size: 15px;
   padding: 8px;
   width: 200px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 8px;
   text-decoration: none;
-  box-shadow: 3px 3px #999;
+  box-shadow: 3px 3px #718dba;
+  font-weight: bold;
 }
 
 .button:hover {
-  background-color: var(--secondColour);
+  background-color: var(--violet);
 }
 
 .button:active {
-  background-color: var(--mainColour);
-  box-shadow: 0 5px #666;
+  background-color: var(--lightOrange);
+  box-shadow: 0 5px #718dba;
   transform: translateY(4px);
+}
+
+.control {
+  margin-bottom: 0.5rem;
+  color: var(--violet);
+}
+
+h3 {
+  color: var(--darkOrange);
 }

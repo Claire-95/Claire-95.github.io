@@ -1,15 +1,17 @@
+:root {
+  --violet: #718dba;
+  --brown: #bc6c25;
+  --yellow: #e9c46a;
+  --lightOrange: #f4a261;
+  --darkOrange: #c35003;
+  --light: #f9eae1;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-size: 20px;
-}
-
-:root {
-  --mainColour: #46a444;
-  --secondColour: #75b333;
-  --thirdColour: #71bd64;
-  --textColour: #1b8a24;
 }
 
 header {
@@ -18,18 +20,19 @@ header {
   justify-content: space-between;
   height: 80px;
   padding: 0 2rem;
-  background-color: var(--mainColour);
-  color: var(--textColour);
+  background-color: var(--lightOrange);
+  color: var(--darkOrange);
 }
 
 nav a {
   margin: 0 2rem;
-  color: var(--textColour);
+  color: var(--darkOrange);
   text-decoration: none;
+  font-weight: bold;
 }
 
 nav a:hover {
-  color: var(--secondColour);
+  color: var(--yellow);
 }
 
 button.navBtn {
@@ -39,7 +42,7 @@ button.navBtn {
   background: transparent;
   border: none;
   outline: none;
-  color: var(--textColour);
+  color: var(--darkOrange);
   opacity: 0;
   font-size: 1.8rem;
 }
@@ -61,7 +64,7 @@ button.navBtn {
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
-    background-color: var(--mainColour);
+    background-color: var(--lightOrange);
     transition: 1s;
     transform: none;
     position: absolute;
@@ -79,7 +82,7 @@ button.navBtn {
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
-    background-color: var(--mainColour);
+    background-color: var(--lightOrange);
     transition: 1s;
     transform: translateY(-100vh);
     position: absolute;
@@ -97,7 +100,7 @@ button.navBtn {
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
-    background-color: var(--mainColour);
+    background-color: var(--lightOrange);
     transition: 0s;
     transform: translateY(-100vh);
   }

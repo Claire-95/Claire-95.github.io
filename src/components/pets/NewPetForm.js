@@ -2,6 +2,7 @@ import { useRef } from "react";
 import Card from "../ui/Card";
 import classes from "./NewPetForm.module.css";
 import { useNavigate } from "react-router-dom";
+import PetsIcon from "@mui/icons-material/Pets";
 
 function NewPetForm(props) {
   let navigate = useNavigate();
@@ -33,7 +34,11 @@ function NewPetForm(props) {
     <Card>
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.control}>
-          <h1>Add New Pet</h1>
+          <h1>
+            <PetsIcon />
+            Add New Pet
+            <PetsIcon />
+          </h1>
           <label htmlFor="name">Name</label>
           <input type="text" required id="name" ref={nameInputRef} />
         </div>

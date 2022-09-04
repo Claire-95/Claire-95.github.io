@@ -17,21 +17,22 @@ function Pet(props) {
     <li>
       <Card>
         <div>
-          <h1>{props.name}</h1>
+          <h1 className={classes.name}>
+            <PetsIcon />
+            {props.name}
+            <PetsIcon />
+          </h1>
         </div>
 
         <div>
           <a className={classes.button} href={trackerList}>
             View Trackers
-            <PetsIcon />
           </a>
           <a className={classes.button} href={addTrackerPage}>
             Add Tracker
-            <PetsIcon />
           </a>
           <a className={classes.button} href={editPetPage}>
             Edit Pet
-            <PetsIcon />
           </a>
         </div>
       </Card>
