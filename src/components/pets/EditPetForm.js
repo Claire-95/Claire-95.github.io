@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import Card from "../ui/Card";
 import classes from "./NewPetForm.module.css";
-import PetsIcon from "@mui/icons-material/Pets";
 import { DeletePet, UpdatePet } from "../../services/pet-service";
 import { useState } from "react";
 // import { doc, onSnapshot } from "firebase/firestore";
