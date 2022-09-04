@@ -6,13 +6,13 @@ exports.HandleLogin = (loginState, user = "", token = "") => {
     localStorage.setItem("login", "true");
     localStorage.setItem("user", user);
     localStorage.setItem("token", token);
-    authService.SetAccessToken(user, token);
   } else {
     console.log("You're signed out...");
     localStorage.removeItem("login");
     localStorage.removeItem("user");
     localStorage.removeItem("token");
   }
+  authService.SetAccessToken(user, token);
   console.log(loginState);
   exports.loggedIn = loginState;
   updateLoginStateCallback(exports.loggedIn);

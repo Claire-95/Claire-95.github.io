@@ -8,15 +8,15 @@ const SignIn = (props) => {
     firebase
       .signInWithPopup(firebase.auth, firebase.googleAuth)
       .then((result) => {
-        var loginState = true;
         loginService.HandleLogin(
-          loginState,
+          true,
           result.user.email,
           result.user.accessToken
         );
       })
       .catch((error) => {
         console.log(error);
+        loginService.HandleLogin(false);
       });
   };
 

@@ -1,6 +1,5 @@
 import classes from "./PetList.module.css";
 import Card from "../ui/Card";
-import PetsIcon from "@mui/icons-material/Pets";
 
 //Produces content for pet cards
 
@@ -17,11 +16,7 @@ function Pet(props) {
     <li>
       <Card>
         <div>
-          <h1 className={classes.name}>
-            <PetsIcon />
-            {props.name}
-            <PetsIcon />
-          </h1>
+          <h1 className={classes.name}>{props.name}</h1>
         </div>
 
         <div>

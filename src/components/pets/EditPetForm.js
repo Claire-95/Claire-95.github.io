@@ -3,8 +3,6 @@ import Card from "../ui/Card";
 import classes from "./NewPetForm.module.css";
 import { DeletePet, UpdatePet } from "../../services/pet-service";
 import { useState } from "react";
-// import { doc, onSnapshot } from "firebase/firestore";
-// import db from "../../services/db-service";
 
 function EditPetForm(props) {
   const foreverId = props.currentPet.id;
@@ -77,29 +75,25 @@ function EditPetForm(props) {
         <ul>{listItems}</ul>
       </div>
     );
-
     // useEffect(() => {
-    //   const unsubscribe = onSnapshot(petCollectionRef, (snapshot) => {
-    //     setSharedOwners(
-    //       snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
+    //   onSnapshot(doc(db, "pets", foreverId), (doc) => {
+    //     const source = doc.metadata.hasPendingWrites ? "Local" : "Server";
+    //     console.log(source, " data: ", doc.data());
+    //     setSharedOwners(source, " data: ", doc.data());
+    //     const sharedOwnerList = oldSharedOwners;
+    //     const listItems = sharedOwnerList.map((owner) => (
+    //       <ul className={classes.control} key={owner}>
+    //         {owner}
+    //       </ul>
+    //     ));
+    //     return (
+    //       <div className={classes.ownerList}>
+    //         <h3>Shared Owners</h3>
+    //         <ul>{listItems}</ul>
+    //       </div>
     //     );
     //   });
-    //   return () => {
-    //     unsubscribe();
-    //   };
     // }, []);
-    // return (
-    //   <div>
-    //     <h1>Shared Owners</h1>
-    //     <ul>
-    //       {sharedOwners.map((owner) => (
-    //         <li key={owner}>
-    //           <button onClick={() => console.log("delete owner")}></button>
-    //         </li>
-    //       ))}
-    //     </ul>
-    //   </div>
-    // );
   }
 
   return (
