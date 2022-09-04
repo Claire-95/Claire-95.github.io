@@ -3,7 +3,7 @@ import Card from "../ui/Card";
 import classes from "./NewPetForm.module.css";
 import { DeletePet, UpdatePet } from "../../services/pet-service";
 import { useState } from "react";
-import { doc, onSnapshot } from "firebase/firestore";
+// import { doc, onSnapshot } from "firebase/firestore";
 // import db from "../../services/db-service";
 
 function EditPetForm(props) {

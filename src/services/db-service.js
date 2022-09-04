@@ -1,5 +1,9 @@
-const admin = require("firebase-admin");
+// import {
+//   getFirestore,
+//   collection,
+//   query,
+//   where,
+//   getDocs,
+// } from "firebase/firestore";
 
-const db = admin.firestore();
-
-export const petCollectionRef = db;
+// export const db = getFirestore(firebaseApp);
