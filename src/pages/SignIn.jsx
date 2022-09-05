@@ -47,17 +47,9 @@ const SignIn = (props) => {
           <div className="c3"></div>
           <div className="c4"></div>
           <div className="b1">
-            <div className="b2">Login</div>
+            <div className="b2">Google Login</div>
           </div>
         </button>
-        {/* <button
-          className="button"
-          onClick={() => {
-            signInWithFirebase();
-          }}
-        >
-          Sign In With Google <PetsIcon />
-        </button> */}
       </div>
     </Card>
   );
