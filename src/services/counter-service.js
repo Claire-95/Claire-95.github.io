@@ -50,9 +50,6 @@ const GetCounters = () => {
   for (var i = 0; i < loadedCounters.length; i++) {
     if (loadedCounters[i].data.linkedPet === urlId) {
       counters.push(loadedCounters[i]);
-      console.log(counters[0]);
-      console.log(counters[0].data.metric);
-      console.log(counters);
     }
   }
   console.log(counters);

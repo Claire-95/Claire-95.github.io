@@ -2,9 +2,6 @@ import classes from "./CounterList.module.css";
 import Card from "../ui/Card";
 import { DeleteCounter } from "../../services/counter-service";
 import { UpdateCounter } from "../../services/counter-service";
-import { onSnapshot } from "firebase/firestore";
-import { useState, useEffect } from "react";
-import { counterCollectionRef } from "../../services/db-service";
 
 //Produces content for pet cards
 
@@ -81,38 +78,7 @@ function CurrentPet(props) {
 }
 
 function CounterList(props) {
-  var urlId = window.location.pathname.split("/").pop();
-  console.log(urlId);
-
-  const [liveCounters, setLiveCounters] = useState([]);
-
-  useEffect(() => {
-    const unsubscribe = onSnapshot(counterCollectionRef, (snapshot) => {
-      setLiveCounters(
-        snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
-      );
-    });
-    return () => {
-      unsubscribe();
-    };
-  }, []);
-
   var petId = "/add-tracker/" + window.location.pathname.split("/").pop();
-
-  console.log(liveCounters);
-  getCurrentLiveCounters();
-
-  function getCurrentLiveCounters() {
-    const currentLiveCounters = [];
-    for (var i = 0; i < liveCounters.length; i++) {
-      if (liveCounters[i].data.linkedPet === urlId) {
-        currentLiveCounters.push(liveCounters[i]);
-      }
-    }
-    console.log(currentLiveCounters);
-    return currentLiveCounters;
-  }
-
   return (
     <>
       <ul className={classes.list}>
@@ -136,4 +102,4 @@ function CounterList(props) {
   );
 }
 
-export { CounterList, CurrentPet };
+export { CounterList };
