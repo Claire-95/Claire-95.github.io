@@ -1,10 +1,12 @@
 import { useRef } from "react";
 import Card from "../ui/Card";
 import classes from "./NewPetForm.module.css";
+import { useNavigate } from "react-router-dom";
 
 function NewTrackerForm(props) {
   console.log(props);
   const urlId = window.location.pathname.split("/").pop();
+  let navigate = useNavigate();
 
   const trackableInputRef = useRef();
   const metricInputRef = useRef();
@@ -30,6 +32,8 @@ function NewTrackerForm(props) {
     trackableInputRef.current.value = "";
     metricInputRef.current.value = "";
     amountInputRef.current.value = "";
+
+    navigate("/pet-page/" + urlId);
   }
 
   return (

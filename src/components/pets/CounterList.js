@@ -53,7 +53,7 @@ function CurrentPet(props) {
               DeleteTrackerHandler(props);
             }}
           >
-            Delete Tracker
+            Delete {props.trackable} Tracker
           </button>
           <button
             className={classes.button}
@@ -61,7 +61,7 @@ function CurrentPet(props) {
               IncrementTrackerHandler(props);
             }}
           >
-            Increment Tracker +
+            Add {props.metric} +
           </button>
           <button
             className={classes.button}
@@ -69,7 +69,7 @@ function CurrentPet(props) {
               DecrementTrackerHandler(props);
             }}
           >
-            Decrement Tracker -
+            Remove {props.metric} -
           </button>
         </div>
       </Card>

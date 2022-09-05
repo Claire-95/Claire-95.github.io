@@ -30,7 +30,7 @@ const SignIn = (props) => {
         </h2>
         <h2 className="desc">With Planimals you can:</h2>
         <div className="list">
-          <li>Create multiple pets per account</li>
+          <li>Add pets to your account</li>
           <br></br>
           <li>Create multiple Trackers per pet (e.g., 3 walks a day)</li>
           <br></br>
