@@ -37,18 +37,23 @@ function Pet(props) {
 
 function PetList(props) {
   return (
-    <ul className={classes.list}>
-      {props.pets.map((pet) => (
-        <Pet
-          key={pet.id}
-          id={pet.id}
-          name={pet.data.name}
-          species={pet.data.species}
-          owner={pet.data.owner}
-          sharedOwners={pet.data.sharedOwners}
-        />
-      ))}
-    </ul>
+    <>
+      <ul className={classes.list}>
+        {props.pets.map((pet) => (
+          <Pet
+            key={pet.id}
+            id={pet.id}
+            name={pet.data.name}
+            species={pet.data.species}
+            owner={pet.data.owner}
+            sharedOwners={pet.data.sharedOwners}
+          />
+        ))}
+      </ul>
+      <a className={classes.button} href="/new-pet">
+        Add Pet +
+      </a>
+    </>
   );
 }
 
