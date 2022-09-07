@@ -46,7 +46,7 @@ function NewTrackerForm(props) {
             type="text"
             required
             id="trackable"
-            placeholder="e.g., food"
+            placeholder="e.g. food"
             ref={trackableInputRef}
           />
         </div>
@@ -56,7 +56,7 @@ function NewTrackerForm(props) {
             type="text"
             required
             id="metric"
-            placeholder="e.g., tins"
+            placeholder="e.g. tins"
             ref={metricInputRef}
           />
         </div>

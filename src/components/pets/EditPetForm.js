@@ -11,11 +11,10 @@ function EditPetForm(props) {
   const oldSharedOwners = props.currentPet.data.sharedOwners;
   const oldOwner = props.currentPet.data.owner;
 
-  console.log(oldSharedOwners);
-
   const [name, setName] = useState(oldName);
   const [species, setSpecies] = useState(oldSpecies);
   const [sharedOwners, setSharedOwners] = useState(oldSharedOwners[0]);
+  const [deletedOwners, setDeletedOwners] = useState([]);
 
   const nameInputRef = useRef();
   const speciesInputRef = useRef();
@@ -28,12 +27,22 @@ function EditPetForm(props) {
     console.log(name);
     console.log(species);
     console.log(sharedOwners);
+    console.log(oldSharedOwners);
+    console.log(deletedOwners);
+
+    let finalSharedOwnerList = oldSharedOwners.filter(
+      (owner) => !deletedOwners.includes(owner)
+    );
+
+    console.log(finalSharedOwnerList);
+
+    const lowerCaseSharedOwners = sharedOwners.toLowerCase();
 
     const updatedPetData = {
       id: foreverId,
       name: name,
       species: species,
-      sharedOwners: sharedOwners,
+      sharedOwners: lowerCaseSharedOwners,
     };
 
     UpdatePet(updatedPetData);
@@ -65,35 +74,26 @@ function EditPetForm(props) {
   function SharedOwnerList() {
     const sharedOwnerList = oldSharedOwners;
     const listItems = sharedOwnerList.map((owner) => (
-      <ul className={classes.control} key={owner}>
-        {owner}
-      </ul>
+      <div className={classes.ownerList} key={owner}>
+        <ul>
+          {owner}
+          <button
+            className={classes.button}
+            onClick={() => {
+              setDeletedOwners((prevArray) => [...prevArray, owner]);
+              console.log(deletedOwners);
+            }}
+          >
+            Remove Owner
+          </button>
+        </ul>
+      </div>
     ));
     return (
       <div className={classes.ownerList}>
-        <h3>Shared Owners</h3>
-        <ul>{listItems}</ul>
+        <ul key={listItems}>{listItems}</ul>
       </div>
     );
-    // useEffect(() => {
-    //   onSnapshot(doc(db, "pets", foreverId), (doc) => {
-    //     const source = doc.metadata.hasPendingWrites ? "Local" : "Server";
-    //     console.log(source, " data: ", doc.data());
-    //     setSharedOwners(source, " data: ", doc.data());
-    //     const sharedOwnerList = oldSharedOwners;
-    //     const listItems = sharedOwnerList.map((owner) => (
-    //       <ul className={classes.control} key={owner}>
-    //         {owner}
-    //       </ul>
-    //     ));
-    //     return (
-    //       <div className={classes.ownerList}>
-    //         <h3>Shared Owners</h3>
-    //         <ul>{listItems}</ul>
-    //       </div>
-    //     );
-    //   });
-    // }, []);
   }
 
   return (

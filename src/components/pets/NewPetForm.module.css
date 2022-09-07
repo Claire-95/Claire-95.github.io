@@ -24,7 +24,7 @@ h1 {
 
 label {
   font-size: 20px;
-  color: var(--mainColour);
+  color: var(--violet);
 }
 
 .ownerList {
@@ -34,6 +34,8 @@ label {
   padding: 0.25rem;
   width: 100%;
   text-align: left;
+  font-size: 20px;
+  color: var(--violet);
 }
 
 .control label {
@@ -79,6 +81,34 @@ label {
 }
 
 .actions button:active {
+  background-color: var(--lightOrange);
+  box-shadow: 0 5px #718dba;
+  transform: translateY(4px);
+}
+
+.ownerList button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: var(--lightOrange);
+  border: none;
+  color: var(--light);
+  text-align: center;
+  font-size: 15px;
+  padding: 8px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 8px;
+  text-decoration: none;
+  box-shadow: 3px 3px #718dba;
+  font-weight: bold;
+}
+
+.ownerList button:hover {
+  background-color: var(--violet);
+}
+
+.ownerList button:active {
   background-color: var(--lightOrange);
   box-shadow: 0 5px #718dba;
   transform: translateY(4px);
