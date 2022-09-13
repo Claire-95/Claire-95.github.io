@@ -77,7 +77,7 @@ function EditPetForm(props) {
       <div className={classes.ownerList} key={owner}>
         <ul>
           {owner}
-          <button
+          {/* <button
             className={classes.button}
             onClick={() => {
               setDeletedOwners((prevArray) => [...prevArray, owner]);
@@ -85,7 +85,7 @@ function EditPetForm(props) {
             }}
           >
             Remove Owner
-          </button>
+          </button> */}
         </ul>
       </div>
     ));
@@ -138,6 +138,7 @@ function EditPetForm(props) {
         </div>
       </form>
 
+      <h1 style={{ textAlign: "left" }}>Shared Owners</h1>
       <SharedOwnerList />
 
       <div className={classes.actions}>
