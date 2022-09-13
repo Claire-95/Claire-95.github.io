@@ -28,13 +28,13 @@ function EditPetForm(props) {
     console.log(species);
     console.log(sharedOwners);
     console.log(oldSharedOwners);
-    console.log(deletedOwners);
+    // console.log(deletedOwners);
 
-    let finalSharedOwnerList = oldSharedOwners.filter(
-      (owner) => !deletedOwners.includes(owner)
-    );
+    // let finalSharedOwnerList = oldSharedOwners.filter(
+    //   (owner) => !deletedOwners.includes(owner)
+    // );
 
-    console.log(finalSharedOwnerList);
+    // console.log(finalSharedOwnerList);
 
     const lowerCaseSharedOwners = sharedOwners.toLowerCase();
 
