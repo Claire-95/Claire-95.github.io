@@ -14,7 +14,7 @@ function EditPetForm(props) {
   const [name, setName] = useState(oldName);
   const [species, setSpecies] = useState(oldSpecies);
   const [sharedOwners, setSharedOwners] = useState(oldSharedOwners[0]);
-  const [deletedOwners, setDeletedOwners] = useState([]);
+  // const [deletedOwners, setDeletedOwners] = useState([]);
 
   const nameInputRef = useRef();
   const speciesInputRef = useRef();
