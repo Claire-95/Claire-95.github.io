@@ -39,9 +39,7 @@ router.get("/", async (req, res) => {
     res.status(200).json(pets);
     console.log(pets);
   } catch (error) {
-    console.log(error);
-    console.log("Hello?");
-    res.status(500).send(error);
+    res.status(500).send(error, "error");
   }
 });
 
