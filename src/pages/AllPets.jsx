@@ -3,6 +3,7 @@ import LoginService from "../services/login-service";
 
 const AllPets = () => {
   console.log(LoginService);
+
   if (LoginService.loggedIn) {
     return GetPets();
   }

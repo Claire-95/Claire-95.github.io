@@ -40,6 +40,7 @@ router.get("/", async (req, res) => {
     console.log(pets);
   } catch (error) {
     console.log(error);
+    console.log("Hello?");
     res.status(500).send(error);
   }
 });
