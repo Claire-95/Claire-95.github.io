@@ -8,6 +8,10 @@ const SignIn = (props) => {
     firebase
       .signInWithPopup(firebase.auth, firebase.googleAuth)
       .then((result) => {
+        console.log(result);
+        const d = new Date();
+        const authTime = d.getTime();
+        localStorage.setItem("key", authTime);
         loginService.HandleLogin(
           true,
           result.user.email,

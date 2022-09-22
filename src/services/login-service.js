@@ -11,6 +11,7 @@ exports.HandleLogin = (loginState, user = "", token = "") => {
     localStorage.removeItem("login");
     localStorage.removeItem("user");
     localStorage.removeItem("token");
+    localStorage.removeItem("key");
   }
   authService.SetAccessToken(user, token);
   console.log(loginState);
@@ -21,15 +22,25 @@ exports.HandleLogin = (loginState, user = "", token = "") => {
 exports.loggedIn = false;
 const persistentLogin = localStorage.getItem("login");
 
-console.log(persistentLogin);
+const time = new Date();
+const currentTime = time.getTime();
 
-//persistentLogin always !== null unless manually logged out. Does not go null when token runs out
-if (persistentLogin !== null) {
+const authTime = localStorage.getItem("key");
+
+console.log(currentTime);
+console.log(authTime);
+
+var timeDif = currentTime - authTime;
+var timeDiff = (timeDif /= 1000);
+
+console.log(timeDiff);
+
+// persistentLogin always !== null unless manually logged out. Does not go null when token runs out
+if (timeDiff <= 1800) {
   console.log(persistentLogin);
   exports.loggedIn = true;
   const user = localStorage.getItem("user");
   const token = localStorage.getItem("token");
-  //ToDo refresh token, it may have timed out and become invalid.
   authService.SetAccessToken(user, token);
 } else {
   console.log("You're signed out...");
