@@ -41,18 +41,12 @@ const SignIn = (props) => {
           <li>Share pets and trackers with other users</li>
         </div>
         <button
-          className="bone"
+          className="button"
           onClick={() => {
             signInWithFirebase();
           }}
         >
-          <div className="c1"></div>
-          <div className="c2"></div>
-          <div className="c3"></div>
-          <div className="c4"></div>
-          <div className="b1">
-            <div className="b2">Google Login</div>
-          </div>
+          Click to Login with Google
         </button>
       </div>
     </Card>

@@ -45,6 +45,11 @@ button.navBtn {
   color: var(--darkOrange);
   opacity: 0;
   font-size: 1.8rem;
+  box-shadow: none;
+}
+
+button.navBtn.hover {
+  color: var(--darkOrange);
 }
 
 @media only screen and (max-width: 1024px) {
